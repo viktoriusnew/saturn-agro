@@ -27,8 +27,8 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  hidden: { y: 16 },
+  visible: { y: 0, transition: { duration: 0.4 } },
 };
 
 export default function Section04Crops() {

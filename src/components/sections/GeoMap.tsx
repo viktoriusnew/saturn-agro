@@ -131,7 +131,7 @@ export default function GeoMap() {
             </g>
 
             {/* Labels */}
-            <g className="map-label" opacity="0">
+            <g className="map-label">
               <text x="340" y="170" fill="#C4A35A" fontSize="14" fontWeight="600" textAnchor="middle">
                 ООО «Сатурн-Агро»
               </text>
@@ -140,19 +140,19 @@ export default function GeoMap() {
               </text>
             </g>
 
-            <g className="map-label" opacity="0">
+            <g className="map-label">
               <text x="480" y="150" fill="#4A90C4" fontSize="13" fontStyle="italic">
                 р. Дон
               </text>
             </g>
 
-            <g className="map-label" opacity="0">
+            <g className="map-label">
               <text x="400" y="300" fill="rgba(255,255,255,0.35)" fontSize="16" textAnchor="middle" fontWeight="300">
                 Волгоградская область
               </text>
             </g>
 
-            <g className="map-label" opacity="0">
+            <g className="map-label">
               <text x="360" y="90" fill="rgba(196,163,90,0.5)" fontSize="11" textAnchor="middle">
                 Северная зона — чернозёмы
               </text>

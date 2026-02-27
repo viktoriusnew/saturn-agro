@@ -30,6 +30,12 @@ deploy_key
 deploy_key.pub
 *OpenCodesaturn-agro*
 
+# screenshots
+*.png
+screenshot_*.png
+after_*.png
+full_page_*.png
+
 # debug
 npm-debug.log*
 yarn-debug.log*

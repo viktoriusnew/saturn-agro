@@ -30,9 +30,26 @@ export default function Hero() {
         "-=0.5"
       )
       .fromTo(
+        containerRef.current.querySelector(".hero-label"),
+        { y: 20 },
+        { y: 0, duration: 0.8, ease: "power2.out" }
+      )
+      .fromTo(
+        containerRef.current.querySelector(".hero-title"),
+        { y: 30 },
+        { y: 0, duration: 1, ease: "power2.out" },
+        "-=0.4"
+      )
+      .fromTo(
+        containerRef.current.querySelector(".hero-subtitle"),
+        { y: 20 },
+        { y: 0, duration: 0.8, ease: "power2.out" },
+        "-=0.5"
+      )
+      .fromTo(
         containerRef.current.querySelector(".hero-stats"),
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+        { y: 20 },
+        { y: 0, duration: 0.8, ease: "power2.out" },
         "-=0.4"
       );
   }, []);
@@ -55,24 +72,24 @@ export default function Hero() {
 
       <div ref={containerRef} className="relative z-10 section-padding w-full">
         <div className="max-w-4xl">
-          <div className="hero-label opacity-0">
+          <div className="hero-label">
             <span className="inline-block text-gold text-xs md:text-sm font-medium tracking-[0.25em] uppercase border border-gold/30 px-4 py-2 rounded-sm">
               Стратегическое инвестиционное предложение
             </span>
           </div>
 
-          <h1 className="hero-title opacity-0 mt-8 md:mt-10 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.15] tracking-tight">
+          <h1 className="hero-title mt-8 md:mt-10 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.15] tracking-tight">
             Агропромышленный актив
             <br />
             <span className="font-medium">Сатурн-Агро</span>
           </h1>
 
-          <p className="hero-subtitle opacity-0 mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+          <p className="hero-subtitle mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
             Россия, Волгоградская область — действующее предприятие
             с&nbsp;потенциалом трансформации в&nbsp;агрокластер полного цикла
           </p>
 
-          <div className="hero-stats opacity-0 mt-10 flex flex-wrap gap-x-12 lg:gap-x-16 gap-y-6">
+          <div className="hero-stats mt-10 flex flex-wrap gap-x-12 lg:gap-x-16 gap-y-6">
             {[
               { value: "22 002,96", unit: "га", label: "земельный банк" },
               { value: "1,25–1,45", unit: "млрд ₽", label: "выручка" },

@@ -24,11 +24,11 @@ export default function Section01General() {
     if (!textBlockRef.current) return;
     const children = Array.from(textBlockRef.current.children);
 
-    gsap.set(children, { opacity: 0, y: 30 });
+    gsap.set(children, { y: 30 });
 
     const tl = gsap.timeline();
     children.forEach((child, i) => {
-      tl.to(child, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, i * 0.3);
+      tl.to(child, { y: 0, duration: 1, ease: "power2.out" }, i * 0.3);
     });
 
     ScrollTrigger.create({

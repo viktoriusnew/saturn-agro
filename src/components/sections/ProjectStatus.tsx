@@ -35,9 +35,8 @@ export default function ProjectStatus() {
     const items = sectionRef.current.querySelectorAll(".timeline-item");
     gsap.fromTo(
       items,
-      { opacity: 0, y: 30 },
+      { y: 30 },
       {
-        opacity: 1,
         y: 0,
         duration: 0.6,
         stagger: 0.2,
@@ -74,7 +73,7 @@ export default function ProjectStatus() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {TIMELINE.map((item, i) => (
-              <div key={item.months} className="timeline-item opacity-0 relative">
+              <div key={item.months} className="timeline-item relative">
                 <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-full bg-cream border-2 border-gold/30 mb-6 relative z-10">
                   <span className="text-sm font-bold text-gold">{item.months}</span>
                 </div>

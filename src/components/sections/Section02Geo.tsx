@@ -313,7 +313,7 @@ export default function Section02Geo() {
               <circle r="10" fill="rgba(196,163,90,0.3)" />
               <circle r="4" fill="#C4A35A" />
             </g>
-            <g className="map-label" style={{ opacity: 0, transform: "translateY(10px)" }}>
+            <g className="map-label">
               <text x="340" y="170" fill="#C4A35A" fontSize="14" fontWeight="600" textAnchor="middle">
                 ООО «Сатурн-Агро»
               </text>
@@ -321,17 +321,17 @@ export default function Section02Geo() {
                 22 002,96 га
               </text>
             </g>
-            <g className="map-label" style={{ opacity: 0, transform: "translateY(10px)" }}>
+            <g className="map-label">
               <text x="480" y="150" fill="#4A90C4" fontSize="13" fontStyle="italic">
                 р. Дон
               </text>
             </g>
-            <g className="map-label" style={{ opacity: 0, transform: "translateY(10px)" }}>
+            <g className="map-label">
               <text x="400" y="300" fill="rgba(255,255,255,0.35)" fontSize="16" textAnchor="middle" fontWeight="300">
                 Волгоградская область
               </text>
             </g>
-            <g className="map-label" style={{ opacity: 0, transform: "translateY(10px)" }}>
+            <g className="map-label">
               <text x="360" y="90" fill="rgba(196,163,90,0.5)" fontSize="11" textAnchor="middle">
                 Северная зона — чернозёмы
               </text>
