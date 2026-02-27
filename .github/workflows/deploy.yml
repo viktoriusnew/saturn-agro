@@ -12,18 +12,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci
-    
-    - name: Build project
-      run: npm run build
-    
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v1.0.0
       with:
@@ -33,6 +21,7 @@ jobs:
         script: |
           cd /root/saturn-agro
           git pull origin main
+          rm -rf .next
           npm install
           npm run build
           systemctl restart saturn-agro
