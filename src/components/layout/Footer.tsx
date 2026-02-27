@@ -9,9 +9,14 @@ export default function Footer() {
           <span className="text-white/20">|</span>
           <span className="text-white/30 text-xs">{COMPANY.region}</span>
         </div>
-        <p className="text-white/20 text-xs">
-          © {new Date().getFullYear()} {COMPANY.name}. Все права защищены.
-        </p>
+        <div className="flex flex-col items-end gap-1">
+          <p className="text-white/20 text-xs">
+            © {new Date().getFullYear()} {COMPANY.name}. Все права защищены.
+          </p>
+          <p className="text-white/10 text-[10px]">
+            Обновлено: {new Date().toLocaleDateString('ru-RU')}
+          </p>
+        </div>
       </div>
     </footer>
   );
