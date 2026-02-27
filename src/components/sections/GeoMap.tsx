@@ -87,7 +87,7 @@ export default function GeoMap() {
         light
       />
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="relative bg-graphite-light/50 rounded-sm border border-white/5 p-8 md:p-12">
           <svg
             ref={svgRef}

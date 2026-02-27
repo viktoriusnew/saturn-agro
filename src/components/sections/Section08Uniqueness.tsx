@@ -26,7 +26,7 @@ export default function Section08Uniqueness() {
         center
       />
 
-      <div ref={ref} className="max-w-4xl mx-auto">
+      <div ref={ref} className="max-w-6xl mx-auto">
         <p className="text-graphite text-lg leading-relaxed mb-8 text-center">
           В настоящее время предложение ООО «Сатурн-Агро» сочетает в себе характеристики, крайне редко представленные в рамках одного действующего предприятия:
         </p>

@@ -22,8 +22,8 @@ export default function Section03LandBank() {
         center
       />
 
-      <div ref={fadeRef} className="max-w-4xl mx-auto">
-        <div className="max-w-2xl mx-auto mb-12 text-center">
+      <div ref={fadeRef} className="max-w-6xl mx-auto px-4">
+        <div className="mb-12 text-center">
           <p className="text-graphite text-lg leading-relaxed mb-6">
             Общая площадь сельскохозяйственных угодий — 22 002,96 га.
           </p>

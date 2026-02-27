@@ -24,7 +24,7 @@ export default function Section09Deal() {
         light
       />
 
-      <div ref={ref} className="max-w-4xl mx-auto">
+      <div ref={ref} className="max-w-6xl mx-auto">
         <ul className="space-y-4 mb-10">
           {ITEMS.map((item, i) => (
             <li

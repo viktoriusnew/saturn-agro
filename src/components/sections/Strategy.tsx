@@ -17,7 +17,7 @@ export default function Strategy() {
         center
       />
 
-      <div ref={ref} className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div ref={ref} className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
         {GROWTH_STRATEGY.map((item, i) => (
           <Card key={item.id} className="relative overflow-hidden">
             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-gold/5 to-transparent rounded-bl-full" />
@@ -32,7 +32,7 @@ export default function Strategy() {
         ))}
       </div>
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="bg-white rounded-sm border border-gray-200/60 p-8 text-center">
           <h4 className="text-lg font-medium text-graphite mb-4">
             Агрокластер полного цикла

@@ -15,7 +15,7 @@ export default function Section06Finance() {
         light
       />
 
-      <div ref={ref} className="max-w-4xl mx-auto mb-12">
+      <div ref={ref} className="max-w-6xl mx-auto mb-12 px-4">
         <p className="text-gray-300 text-lg leading-relaxed mb-6">
           Нормализованный период:
         </p>
@@ -29,7 +29,7 @@ export default function Section06Finance() {
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="bg-graphite-light/50 rounded-sm border border-white/10 p-8">
             <span className="text-sm text-gold uppercase tracking-wider">Годовая выручка</span>

@@ -71,7 +71,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-graphite/70 via-transparent to-graphite/30" />
 
       <div ref={containerRef} className="relative z-10 section-padding w-full">
-        <div className="max-w-4xl">
+        <div className="max-w-6xl">
           <div className="hero-label">
             <span className="inline-block text-gold text-xs md:text-sm font-medium tracking-[0.25em] uppercase border border-gold/30 px-4 py-2 rounded-sm">
               Стратегическое инвестиционное предложение
@@ -84,7 +84,7 @@ export default function Hero() {
             <span className="font-medium">Сатурн-Агро</span>
           </h1>
 
-          <p className="hero-subtitle mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed">
+          <p className="hero-subtitle mt-6 md:mt-8 text-base md:text-lg lg:text-xl text-white/70 max-w-4xl leading-relaxed">
             Россия, Волгоградская область — действующее предприятие
             с&nbsp;потенциалом трансформации в&nbsp;агрокластер полного цикла
           </p>

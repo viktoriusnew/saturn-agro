@@ -23,7 +23,7 @@ export default function Section07Strategy() {
         center
       />
 
-      <div ref={ref} className="max-w-4xl mx-auto space-y-14">
+      <div ref={ref} className="max-w-6xl mx-auto space-y-14 px-4">
         <div>
           <h3 className="text-xl font-semibold text-graphite mb-4">
             7.1. Внедрение системы орошения

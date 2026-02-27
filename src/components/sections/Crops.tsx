@@ -31,7 +31,7 @@ export default function Crops() {
 
       <div ref={ref}>
         <motion.div
-          className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6"
+          className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

@@ -76,7 +76,7 @@ export default function Section05Infrastructure() {
         center
       />
 
-      <div className="max-w-4xl mx-auto mb-12">
+      <div className="max-w-6xl mx-auto mb-12 px-4">
         <p className="text-graphite text-lg leading-relaxed mb-6">
           Предприятие обладает полной производственной базой:
         </p>
@@ -106,7 +106,7 @@ export default function Section05Infrastructure() {
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <div className="inline-flex items-baseline gap-2">
             <span className="text-gray-400 text-xl">более</span>

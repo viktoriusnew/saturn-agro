@@ -43,7 +43,7 @@ export default function Section04Crops() {
         center
       />
 
-      <div ref={ref} className="max-w-4xl mx-auto">
+      <div ref={ref} className="max-w-6xl mx-auto px-4">
         <p className="text-graphite text-lg leading-relaxed mb-6 text-center">
           Диверсифицированный портфель культур:
         </p>

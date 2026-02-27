@@ -24,52 +24,163 @@ const LIST_2_2 = [
   "расширение структуры выращиваемых культур.",
 ];
 
-function IconLand() {
+// SVG-иллюстрация: Золотое поле с пшеницей
+function ImageLand() {
   return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-gold">
-      <path
-        d="M8 32 L16 24 L24 28 L32 20 L40 24 L40 36 L8 36 Z"
-        fill="currentColor"
-        fillOpacity="0.3"
-      />
-      <path
-        d="M4 36 L12 28 L20 32 L28 24 L36 28 L44 24 L44 40 L4 40 Z"
-        fill="currentColor"
-        fillOpacity="0.5"
-      />
-      <path
-        d="M6 38 L14 30 L22 34 L30 26 L38 30 L42 38 L6 38 Z"
-        fill="currentColor"
-        fillOpacity="0.8"
-      />
+    <svg viewBox="0 0 400 200" fill="none" className="w-full h-full">
+      {/* Фон - небо с градиентом заката */}
+      <defs>
+        <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#1a1a3e" />
+          <stop offset="40%" stopColor="#2d2d5a" />
+          <stop offset="100%" stopColor="#C4A35A" stopOpacity="0.3" />
+        </linearGradient>
+        <linearGradient id="fieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#2d1f0f" />
+          <stop offset="50%" stopColor="#1a1208" />
+          <stop offset="100%" stopColor="#0d0904" />
+        </linearGradient>
+        <linearGradient id="wheatGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#C4A35A" />
+          <stop offset="50%" stopColor="#8B7355" />
+          <stop offset="100%" stopColor="#4a3f2a" />
+        </linearGradient>
+      </defs>
+      
+      {/* Небо */}
+      <rect width="400" height="200" fill="url(#skyGradient)" />
+      
+      {/* Далекие холмы */}
+      <path d="M0 140 Q100 120 200 135 T400 130 V200 H0 Z" fill="#1a1520" opacity="0.6" />
+      <path d="M0 150 Q150 140 300 148 T400 145 V200 H0 Z" fill="#1a1210" opacity="0.8" />
+      
+      {/* Золотое поле */}
+      <path d="M0 160 Q200 150 400 165 V200 H0 Z" fill="url(#fieldGradient)" />
+      
+      {/* Стебли пшеницы - передний план */}
+      <g opacity="0.9">
+        {/* Левая группа */}
+        <path d="M30 200 Q32 150 28 100" stroke="url(#wheatGradient)" strokeWidth="2" fill="none" />
+        <ellipse cx="28" cy="95" rx="6" ry="12" fill="#C4A35A" opacity="0.8" />
+        <ellipse cx="26" cy="85" rx="5" ry="10" fill="#C4A35A" opacity="0.7" />
+        <ellipse cx="30" cy="78" rx="4" ry="8" fill="#C4A35A" opacity="0.6" />
+        
+        <path d="M50 200 Q48 145 52 95" stroke="url(#wheatGradient)" strokeWidth="2" fill="none" />
+        <ellipse cx="52" cy="90" rx="7" ry="14" fill="#C4A35A" opacity="0.8" />
+        <ellipse cx="54" cy="78" rx="5" ry="11" fill="#C4A35A" opacity="0.7" />
+        
+        <path d="M80 200 Q82 155 78 105" stroke="url(#wheatGradient)" strokeWidth="2" fill="none" />
+        <ellipse cx="78" cy="100" rx="6" ry="13" fill="#C4A35A" opacity="0.8" />
+        <ellipse cx="76" cy="88" rx="5" ry="10" fill="#C4A35A" opacity="0.7" />
+        
+        {/* Центральная группа */}
+        <path d="M120 200 Q118 148 122 98" stroke="url(#wheatGradient)" strokeWidth="2.5" fill="none" />
+        <ellipse cx="122" cy="93" rx="8" ry="15" fill="#C4A35A" opacity="0.9" />
+        <ellipse cx="124" cy="80" rx="6" ry="12" fill="#C4A35A" opacity="0.8" />
+        <ellipse cx="120" cy="70" rx="4" ry="8" fill="#C4A35A" opacity="0.7" />
+        
+        <path d="M160 200 Q162 152 158 102" stroke="url(#wheatGradient)" strokeWidth="2" fill="none" />
+        <ellipse cx="158" cy="97" rx="7" ry="14" fill="#C4A35A" opacity="0.8" />
+        <ellipse cx="160" cy="84" rx="5" ry="11" fill="#C4A35A" opacity="0.7" />
+        
+        <path d="M200 200 Q198 150 202 100" stroke="url(#wheatGradient)" strokeWidth="2.5" fill="none" />
+        <ellipse cx="202" cy="95" rx="8" ry="15" fill="#C4A35A" opacity="0.9" />
+        <ellipse cx="200" cy="82" rx="6" ry="12" fill="#C4A35A" opacity="0.8" />
+        
+        {/* Правая группа */}
+        <path d="M250 200 Q252 155 248 105" stroke="url(#wheatGradient)" strokeWidth="2" fill="none" />
+        <ellipse cx="248" cy="100" rx="6" ry="13" fill="#C4A35A" opacity="0.8" />
+        <ellipse cx="250" cy="88" rx="5" ry="10" fill="#C4A35A" opacity="0.7" />
+        
+        <path d="M300 200 Q298 148 302 98" stroke="url(#wheatGradient)" strokeWidth="2.5" fill="none" />
+        <ellipse cx="302" cy="93" rx="8" ry="15" fill="#C4A35A" opacity="0.9" />
+        <ellipse cx="304" cy="80" rx="6" ry="12" fill="#C4A35A" opacity="0.8" />
+        
+        <path d="M340 200 Q342 152 338 102" stroke="url(#wheatGradient)" strokeWidth="2" fill="none" />
+        <ellipse cx="338" cy="97" rx="7" ry="14" fill="#C4A35A" opacity="0.8" />
+        
+        <path d="M370 200 Q368 150 372 100" stroke="url(#wheatGradient)" strokeWidth="2" fill="none" />
+        <ellipse cx="372" cy="95" rx="6" ry="12" fill="#C4A35A" opacity="0.8" />
+      </g>
+      
+      {/* Световой эффект - закат */}
+      <ellipse cx="350" cy="80" rx="40" ry="25" fill="#C4A35A" opacity="0.15" />
+      <ellipse cx="350" cy="80" rx="25" ry="15" fill="#C4A35A" opacity="0.2" />
     </svg>
   );
 }
 
-function IconWater() {
+// SVG-иллюстрация: Река Дон
+function ImageWater() {
   return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-[#4A90C4]">
-      <path
-        d="M4 28 Q14 22 24 28 T44 28 L44 40 L4 40 Z"
-        fill="currentColor"
-        fillOpacity="0.3"
-      />
-      <path
-        d="M4 32 Q12 28 20 32 T36 32 T44 28"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.7"
-      />
-      <path
-        d="M8 36 Q16 32 24 36 T40 36"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.5"
-      />
+    <svg viewBox="0 0 400 200" fill="none" className="w-full h-full">
+      {/* Фон - вечернее небо */}
+      <defs>
+        <linearGradient id="riverSkyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#1a1a3e" />
+          <stop offset="50%" stopColor="#2a3a5a" />
+          <stop offset="100%" stopColor="#3a5a7a" />
+        </linearGradient>
+        <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#4A90C4" stopOpacity="0.8" />
+          <stop offset="50%" stopColor="#2E5A7C" />
+          <stop offset="100%" stopColor="#1a3a5a" />
+        </linearGradient>
+        <linearGradient id="shoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#1a1510" />
+          <stop offset="100%" stopColor="#2a2015" />
+        </linearGradient>
+      </defs>
+      
+      {/* Небо */}
+      <rect width="400" height="200" fill="url(#riverSkyGradient)" />
+      
+      {/* Далекий берег */}
+      <path d="M0 90 Q100 85 200 88 T400 85 V200 H0 Z" fill="#1a2535" opacity="0.5" />
+      
+      {/* Вода - река Дон */}
+      <path d="M0 110 Q150 105 250 115 T400 110 V200 H0 Z" fill="url(#waterGradient)" />
+      
+      {/* Блики на воде */}
+      <g opacity="0.3">
+        <ellipse cx="80" cy="135" rx="30" ry="3" fill="#6AB0E4" />
+        <ellipse cx="180" cy="140" rx="40" ry="4" fill="#6AB0E4" />
+        <ellipse cx="300" cy="138" rx="35" ry="3" fill="#6AB0E4" />
+        <ellipse cx="120" cy="155" rx="25" ry="2" fill="#6AB0E4" />
+        <ellipse cx="250" cy="160" rx="30" ry="3" fill="#6AB0E4" />
+      </g>
+      
+      {/* Рябь на воде */}
+      <g opacity="0.2" stroke="#6AB0E4" strokeWidth="1" fill="none">
+        <path d="M50 130 Q70 128 90 130" />
+        <path d="M150 135 Q170 133 190 135" />
+        <path d="M280 132 Q300 130 320 132" />
+        <path d="M100 150 Q120 148 140 150" />
+        <path d="M220 155 Q240 153 260 155" />
+        <path d="M340 148 Q360 146 380 148" />
+      </g>
+      
+      {/* Ближний берег */}
+      <path d="M0 160 Q80 155 150 165 T300 160 L400 155 V200 H0 Z" fill="url(#shoreGradient)" />
+      
+      {/* Трава на берегу */}
+      <g opacity="0.6">
+        <path d="M20 165 L22 150 L24 165" stroke="#3a5a3a" strokeWidth="2" fill="none" />
+        <path d="M35 168 L37 152 L39 168" stroke="#3a5a3a" strokeWidth="2" fill="none" />
+        <path d="M60 166 L62 148 L64 166" stroke="#3a5a3a" strokeWidth="2" fill="none" />
+        <path d="M320 162 L322 145 L324 162" stroke="#3a5a3a" strokeWidth="2" fill="none" />
+        <path d="M350 165 L352 150 L354 165" stroke="#3a5a3a" strokeWidth="2" fill="none" />
+        <path d="M375 163 L377 147 L379 163" stroke="#3a5a3a" strokeWidth="2" fill="none" />
+      </g>
+      
+      {/* Отражение заката на воде */}
+      <ellipse cx="320" cy="125" rx="25" ry="8" fill="#4A90C4" opacity="0.2" />
+      <ellipse cx="320" cy="125" rx="15" ry="4" fill="#6AB0E4" opacity="0.3" />
+      
+      {/* Луна */}
+      <circle cx="60" cy="50" r="15" fill="#e0e0e0" opacity="0.8" />
+      <circle cx="58" cy="48" r="3" fill="#d0d0d0" opacity="0.5" />
+      <circle cx="63" cy="52" r="2" fill="#d0d0d0" opacity="0.4" />
     </svg>
   );
 }
@@ -86,71 +197,74 @@ export default function Section02Geo() {
   useEffect(() => {
     if (!sectionRef.current || !mapContainerRef.current) return;
 
-    const paths = svgRef.current?.querySelectorAll(".draw-path");
-    const labels = svgRef.current?.querySelectorAll(".map-label");
-    const pin = svgRef.current?.querySelector(".map-pin");
-    const pinPulse = svgRef.current?.querySelector(".map-pin-pulse");
+    const ctx = gsap.context(() => {
+      const paths = svgRef.current?.querySelectorAll(".draw-path");
+      const labels = svgRef.current?.querySelectorAll(".map-label");
+      const pin = svgRef.current?.querySelector(".map-pin");
+      const pinPulse = svgRef.current?.querySelector(".map-pin-pulse");
 
-    paths?.forEach((path) => {
-      const el = path as SVGPathElement;
-      const length = el.getTotalLength();
-      gsap.set(el, { strokeDasharray: length, strokeDashoffset: length });
-    });
+      paths?.forEach((path) => {
+        const el = path as SVGPathElement;
+        const length = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: length, strokeDashoffset: length });
+      });
 
-    const tl = gsap.timeline();
-    paths?.forEach((path, i) => {
-      const el = path as SVGPathElement;
-      tl.to(el, { strokeDashoffset: 0, duration: 1, ease: "none" }, i * 0.05);
-    });
-    tl.to(
-      labels || [],
-      { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
-      0.4
-    );
-    if (pin) {
-      tl.fromTo(
-        pin,
-        { scale: 0, transformOrigin: "center bottom" },
-        { scale: 1, duration: 0.4, ease: "back.out(2)" },
-        0.35
+      const tl = gsap.timeline();
+      paths?.forEach((path, i) => {
+        const el = path as SVGPathElement;
+        tl.to(el, { strokeDashoffset: 0, duration: 1, ease: "none" }, i * 0.05);
+      });
+      tl.to(
+        labels || [],
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
+        0.4
       );
-    }
-    if (pinPulse) {
-      tl.fromTo(
-        pinPulse,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.2 },
-        0.6
-      );
-    }
+      if (pin) {
+        tl.fromTo(
+          pin,
+          { scale: 0, transformOrigin: "center bottom" },
+          { scale: 1, duration: 0.4, ease: "back.out(2)" },
+          0.35
+        );
+      }
+      if (pinPulse) {
+        tl.fromTo(
+          pinPulse,
+          { scale: 0.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.2 },
+          0.6
+        );
+      }
 
-    ScrollTrigger.create({
-      trigger: mapContainerRef.current,
-      start: "top 80%",
-      end: "top 20%",
-      animation: tl,
-      scrub: 1,
-    });
+      ScrollTrigger.create({
+        trigger: mapContainerRef.current,
+        start: "top 80%",
+        end: "top 20%",
+        animation: tl,
+        scrub: 1,
+      });
 
-    ScrollTrigger.create({
-      trigger: mapContainerRef.current,
-      start: "top 60%",
-      end: "bottom 40%",
-      onEnter: () => mapContainerRef.current?.setAttribute("data-pin-visible", "true"),
-      onLeaveBack: () => mapContainerRef.current?.removeAttribute("data-pin-visible"),
-      onLeave: () => mapContainerRef.current?.removeAttribute("data-pin-visible"),
-      onEnterBack: () => mapContainerRef.current?.setAttribute("data-pin-visible", "true"),
-    });
+      ScrollTrigger.create({
+        trigger: mapContainerRef.current,
+        start: "top 60%",
+        end: "bottom 40%",
+        onEnter: () => mapContainerRef.current?.setAttribute("data-pin-visible", "true"),
+        onLeaveBack: () => mapContainerRef.current?.removeAttribute("data-pin-visible"),
+        onLeave: () => mapContainerRef.current?.removeAttribute("data-pin-visible"),
+        onEnterBack: () => mapContainerRef.current?.setAttribute("data-pin-visible", "true"),
+      });
+    }, sectionRef);
 
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+    return () => ctx.revert();
   }, []);
 
   useEffect(() => {
     if (!card1Ref.current || !sectionRef.current) return;
     gsap.fromTo(
       card1Ref.current,
-      { y: 24 },
+      { opacity: 0, y: 24 },
       {
+        opacity: 1,
         y: 0,
         duration: 0.7,
         ease: "power2.out",
@@ -167,8 +281,9 @@ export default function Section02Geo() {
     if (!card2Ref.current || !sectionRef.current) return;
     gsap.fromTo(
       card2Ref.current,
-      { y: 24 },
+      { opacity: 0, y: 24 },
       {
+        opacity: 1,
         y: 0,
         duration: 0.7,
         delay: 0.15,
@@ -187,8 +302,9 @@ export default function Section02Geo() {
     const items = list1Ref.current.querySelectorAll("li");
     gsap.fromTo(
       items,
-      { x: -12 },
+      { opacity: 0, x: -12 },
       {
+        opacity: 1,
         x: 0,
         duration: 0.5,
         stagger: 0.1,
@@ -207,8 +323,9 @@ export default function Section02Geo() {
     const items = list2Ref.current.querySelectorAll("li");
     gsap.fromTo(
       items,
-      { x: -12 },
+      { opacity: 0, x: -12 },
       {
+        opacity: 1,
         x: 0,
         duration: 0.5,
         stagger: 0.1,
@@ -232,57 +349,96 @@ export default function Section02Geo() {
         center
       />
 
-      <div className="max-w-4xl mx-auto space-y-16 mt-28">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="h-12"></div>
+        
+        <div className="grid grid-cols-2 gap-12">
+        
+        {/* Карточка 1 - Земля */}
         <div
           ref={card1Ref}
-          className="group rounded-lg border border-white/10 bg-graphite-light/30 p-8 md:p-10 transition-all duration-300 hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5"
+          className="group relative rounded-xl border border-white/10 bg-gradient-to-br from-graphite-light/40 to-graphite/60 overflow-hidden"
         >
-          <div className="flex items-start gap-4 md:gap-6">
-            <div className="flex-shrink-0 mt-1">{IconLand()}</div>
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                2.1. Север Волгоградской области — зона наиболее плодородных земель региона
+          {/* Фоновый градиент при наведении */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          {/* SVG-иллюстрация */}
+          <div className="relative w-full h-48 overflow-hidden">
+            <ImageLand />
+            <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 to-transparent"></div>
+          </div>
+          
+          <div className="relative" style={{ padding: '40px', paddingTop: '60px' }}>
+            {/* Контент */}
+            <div className="flex items-center gap-3 mb-8">
+              <span className="text-gold/60 text-sm font-medium">01</span>
+              <h3 className="text-xl font-semibold text-white">
+                Север Волгоградской области
               </h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Предприятие расположено в северной части Волгоградской области — зоне высокопродуктивных чернозёмов.
-              </p>
-              <p className="text-gold/90 text-sm font-medium mb-2">Ключевые преимущества:</p>
-              <ul ref={list1Ref} className="list-disc list-inside text-gray-300 space-y-1">
+            </div>
+            
+            <p className="text-white leading-relaxed mb-12 px-2">
+              Зона наиболее плодородных земель региона — высокопродуктивные чернозёмы с оптимальным климатом.
+            </p>
+            
+            <div className="bg-white/5 rounded-xl p-8 border border-white/5">
+              <p className="text-gold text-sm font-semibold mb-8 uppercase tracking-wider">Ключевые преимущества</p>
+              <ul ref={list1Ref} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
                 {LIST_2_1.map((item, i) => (
-                  <li key={i}>{item}</li>
+                  <li key={i} className="flex items-start gap-2 text-gray-300 text-sm text-left">
+                    <span className="text-gold mt-1">•</span>
+                    <span>{item.replace(';', '')}</span>
+                  </li>
                 ))}
               </ul>
             </div>
           </div>
         </div>
 
+        {/* Карточка 2 - Вода */}
         <div
           ref={card2Ref}
-          className="group rounded-lg border border-white/10 bg-graphite-light/30 p-8 md:p-10 transition-all duration-300 hover:border-[#4A90C4]/40 hover:shadow-lg hover:shadow-[#4A90C4]/5"
+          className="group relative rounded-xl border border-white/10 bg-gradient-to-br from-graphite-light/40 to-graphite/60 overflow-hidden"
         >
-          <div className="flex items-start gap-4 md:gap-6">
-            <div className="flex-shrink-0 mt-1">{IconWater()}</div>
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                2.2. Расположение на берегу реки Дон
+          {/* Фоновый градиент при наведении */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#4A90C4]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          {/* SVG-иллюстрация */}
+          <div className="relative w-full h-48 overflow-hidden">
+            <ImageWater />
+            <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 to-transparent"></div>
+          </div>
+          
+          <div className="relative" style={{ padding: '40px', paddingTop: '60px' }}>
+            {/* Контент */}
+            <div className="flex items-center gap-3 mb-8">
+              <span className="text-[#4A90C4]/60 text-sm font-medium">02</span>
+              <h3 className="text-xl font-semibold text-white">
+                Расположение на берегу реки Дон
               </h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Предприятие находится в непосредственной близости к реке Дон, что создаёт стратегическое преимущество:
-              </p>
-              <ul ref={list2Ref} className="list-disc list-inside text-gray-300 space-y-1 mb-4">
-                {LIST_2_2.map((item, i) => (
-                  <li key={i}>{item}</li>
+            </div>
+            
+            <p className="text-white leading-relaxed mb-12 px-2">
+              Непосредственная близость к крупному водному ресурсу создаёт уникальное стратегическое преимущество.
+            </p>
+            
+            <div className="bg-white/5 rounded-xl p-8 border border-white/5">
+              <p className="text-[#4A90C4] text-sm font-semibold mb-8 uppercase tracking-wider">Возможности</p>
+              <ul ref={list2Ref} className="grid grid-cols-1 gap-y-5">
+                {LIST_2_2.slice(0, -1).map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-gray-300 text-sm text-left">
+                    <span className="text-[#4A90C4] mt-1">•</span>
+                    <span>{item.replace(';', '')}</span>
+                  </li>
                 ))}
               </ul>
-              <p className="text-gray-300 leading-relaxed">
-                Наличие водного ресурса формирует фундамент для перехода к интенсивной модели земледелия.
-              </p>
             </div>
           </div>
         </div>
       </div>
+      </div>
 
-      <div ref={mapContainerRef} className="max-w-4xl mx-auto mt-32">
+      <div ref={mapContainerRef} className="max-w-6xl mx-auto mt-32 px-4">
         <div className="relative bg-graphite-light/50 rounded-sm border border-white/5 p-8 md:p-12">
           <svg ref={svgRef} viewBox="0 0 800 500" fill="none" className="w-full h-auto">
             <path

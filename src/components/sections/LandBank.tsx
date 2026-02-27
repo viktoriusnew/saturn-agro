@@ -20,7 +20,7 @@ export default function LandBank() {
         subtitle="Управляемый земельный банк обеспечивает масштаб и устойчивость производственного процесса"
       />
 
-      <div ref={fadeRef} className="max-w-4xl mx-auto">
+      <div ref={fadeRef} className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-baseline gap-3">
             <span className="text-6xl md:text-8xl font-light text-graphite tracking-tight">

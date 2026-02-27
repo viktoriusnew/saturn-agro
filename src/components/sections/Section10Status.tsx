@@ -15,7 +15,7 @@ export default function Section10Status() {
         center
       />
 
-      <div ref={ref} className="max-w-3xl mx-auto text-center space-y-6">
+      <div ref={ref} className="max-w-6xl mx-auto px-4 text-center space-y-6">
         <p className="text-graphite text-lg leading-relaxed">
           Предприятие находится в стадии действующей операционной деятельности и обладает всей необходимой базой для перехода к следующему этапу стратегического развития.
         </p>

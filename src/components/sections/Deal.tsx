@@ -14,7 +14,7 @@ export default function Deal() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-forest rounded-full blur-[120px]" />
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-4xl mx-auto text-center">
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto text-center">
         <SectionHeading
           label="Инвестиционное предложение"
           title="Структура сделки"
