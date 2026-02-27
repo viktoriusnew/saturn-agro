@@ -149,9 +149,8 @@ export default function Section02Geo() {
     if (!card1Ref.current || !sectionRef.current) return;
     gsap.fromTo(
       card1Ref.current,
-      { opacity: 0, y: 24 },
+      { y: 24 },
       {
-        opacity: 1,
         y: 0,
         duration: 0.7,
         ease: "power2.out",
@@ -168,9 +167,8 @@ export default function Section02Geo() {
     if (!card2Ref.current || !sectionRef.current) return;
     gsap.fromTo(
       card2Ref.current,
-      { opacity: 0, y: 24 },
+      { y: 24 },
       {
-        opacity: 1,
         y: 0,
         duration: 0.7,
         delay: 0.15,
@@ -189,9 +187,8 @@ export default function Section02Geo() {
     const items = list1Ref.current.querySelectorAll("li");
     gsap.fromTo(
       items,
-      { opacity: 0, x: -12 },
+      { x: -12 },
       {
-        opacity: 1,
         x: 0,
         duration: 0.5,
         stagger: 0.1,
@@ -210,9 +207,8 @@ export default function Section02Geo() {
     const items = list2Ref.current.querySelectorAll("li");
     gsap.fromTo(
       items,
-      { opacity: 0, x: -12 },
+      { x: -12 },
       {
-        opacity: 1,
         x: 0,
         duration: 0.5,
         stagger: 0.1,
