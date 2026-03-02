@@ -43,7 +43,7 @@ export default function Section01General() {
           backgroundImage: "url('/images/123.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.5
+          opacity: 0.7
         }}
       />
       
