@@ -43,26 +43,24 @@ export default function Section01General() {
           backgroundImage: "url('/images/123.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.12
+          opacity: 0.15
         }}
       />
       
       {/* Полупрозрачный оверлей для лучшей читаемости */}
-      <div className="absolute inset-0 z-0 bg-cream/85" />
+      <div className="absolute inset-0 z-0 bg-cream/95" />
       
       {/* Контент */}
       <div className="relative z-10" style={{ maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
-        <div className="mb-12 md:mb-16">
-          <SectionHeading
-            label="Раздел 1"
-            title="Общая характеристика проекта"
-            subtitle=""
-            center
-          />
-        </div>
+        <SectionHeading
+          label="Раздел 1"
+          title="Общая характеристика проекта"
+          subtitle=""
+          center
+        />
 
         {/* Текст по абзацам */}
-        <div ref={textBlockRef} style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: "2rem", paddingBottom: "2rem" }}>
+        <div ref={textBlockRef} style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: "3.5rem", paddingTop: "4rem", paddingBottom: "4rem" }}>
           <p className="text-graphite text-lg leading-relaxed">
             ООО «Сатурн-Агро» — действующее сельскохозяйственное предприятие, осуществляющее промышленное растениеводство в северной части Волгоградской области Российской Федерации.
           </p>
