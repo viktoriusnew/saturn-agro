@@ -43,12 +43,12 @@ export default function Section01General() {
           backgroundImage: "url('/images/123.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.15
+          opacity: 0.3
         }}
       />
       
       {/* Полупрозрачный оверлей для лучшей читаемости */}
-      <div className="absolute inset-0 z-0 bg-cream/95" />
+      <div className="absolute inset-0 z-0 bg-cream/85" />
       
       {/* Контент */}
       <div className="relative z-10" style={{ maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
