@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -10,16 +9,8 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const TimelinePlayer = dynamic(
-  () => import("@/components/ui/TimelinePlayer").then((mod) => mod.TimelinePlayer),
-  { ssr: false }
-);
-
 export default function Section01General() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const timelineContainerRef = useRef<HTMLDivElement>(null);
   const textBlockRef = useRef<HTMLDivElement>(null);
-
   const infographicsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -67,7 +58,7 @@ export default function Section01General() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="section-1" className="py-24 md:py-32 bg-cream" style={{ paddingLeft: "5%", paddingRight: "5%" }}>
+    <section id="section-1" className="py-24 md:py-32 bg-cream" style={{ paddingLeft: "5%", paddingRight: "5%" }}>
       <div style={{ maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
         <SectionHeading
           label="Раздел 1"
@@ -75,20 +66,6 @@ export default function Section01General() {
           subtitle=""
           center
         />
-
-        {/* Таймлайн — Remotion Player, привязан к скроллу */}
-        <div
-          ref={timelineContainerRef}
-          style={{
-            marginTop: "2.5rem",
-            marginBottom: "3.5rem",
-            display: "flex",
-            justifyContent: "center",
-            minHeight: 120,
-          }}
-        >
-          <TimelinePlayer containerRef={sectionRef} />
-        </div>
 
         {/* Текст по абзацам */}
         <div ref={textBlockRef} style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: "2rem", paddingBottom: "2rem" }}>
