@@ -48,7 +48,7 @@ export default function Section01General() {
       />
       
       {/* Полупрозрачный оверлей для лучшей читаемости */}
-      <div className="absolute inset-0 z-0 bg-cream/85" />
+      <div className="absolute inset-0 z-0" style={{ backgroundColor: 'rgba(250, 250, 248, 0.7)' }} />
       
       {/* Контент */}
       <div className="relative z-10" style={{ maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
