@@ -35,14 +35,31 @@ export default function Section01General() {
   }, []);
 
   return (
-    <section id="section-1" className="py-24 md:py-32 bg-cream" style={{ paddingLeft: "5%", paddingRight: "5%" }}>
-      <div style={{ maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
-        <SectionHeading
-          label="Раздел 1"
-          title="Общая характеристика проекта"
-          subtitle=""
-          center
-        />
+    <section id="section-1" className="relative py-24 md:py-32 overflow-hidden" style={{ paddingLeft: "5%", paddingRight: "5%" }}>
+      {/* Фоновое изображение */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/images/123.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.12
+        }}
+      />
+      
+      {/* Полупрозрачный оверлей для лучшей читаемости */}
+      <div className="absolute inset-0 z-0 bg-cream/85" />
+      
+      {/* Контент */}
+      <div className="relative z-10" style={{ maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
+        <div className="mb-12 md:mb-16">
+          <SectionHeading
+            label="Раздел 1"
+            title="Общая характеристика проекта"
+            subtitle=""
+            center
+          />
+        </div>
 
         {/* Текст по абзацам */}
         <div ref={textBlockRef} style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: "2rem", paddingBottom: "2rem" }}>
@@ -56,8 +73,6 @@ export default function Section01General() {
             Проект рассматривается как стратегический агропромышленный актив с потенциалом трансформации в агрокластер полного цикла.
           </p>
         </div>
-
-
       </div>
     </section>
   );
