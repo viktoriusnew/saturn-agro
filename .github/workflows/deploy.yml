@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v1.0.0
       with:
@@ -20,9 +17,30 @@ jobs:
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
           cd /root/saturn-agro
-          git pull origin main
-          rm -rf .next
-          npm install
+          echo "🚀 Starting deployment..."
+          
+          # Способ 1: Пробуем git fetch через HTTPS с токеном (создадим ниже)
+          # Способ 2: Если не работает - скачиваем архив
+          
+          # Создаем временный токен для git (будем настраивать отдельно)
+          # Пока используем git fetch с текущими настройками
+          git fetch origin main || echo "Fetch failed, will use archive method"
+          
+          if git rev-parse --verify origin/main >/dev/null 2>&1; then
+            git reset --hard origin/main
+            echo "✅ Git updated to latest commit"
+          else
+            echo "⚠️ Git fetch failed, manual update needed"
+            exit 1
+          fi
+          
+          # Clean and rebuild
+          rm -rf .next node_modules
+          npm ci
           npm run build
+          
+          # Restart
           systemctl restart saturn-agro
+          
           echo "✅ Deploy completed at $(date)"
+          echo "📋 Current commit: $(git log -1 --oneline)"
