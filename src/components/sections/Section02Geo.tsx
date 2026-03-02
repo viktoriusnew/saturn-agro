@@ -206,7 +206,7 @@ export default function Section02Geo() {
           {/* Фото пшеничного поля */}
           <div className="relative w-full h-48 overflow-hidden">
             <img 
-              src="/images/section2-land.jpg" 
+              src="/images/agriculture_wheat_field_sunset_1x1.jpg" 
               alt="Пшеничное поле на закате" 
               className="w-full h-full object-cover"
             />
@@ -251,7 +251,7 @@ export default function Section02Geo() {
           {/* Фото реки на закате */}
           <div className="relative w-full h-48 overflow-hidden">
             <img 
-              src="/images/section2-water.jpg" 
+              src="/images/blob.jpg" 
               alt="Река на закате" 
               className="w-full h-full object-cover"
             />
