@@ -3,14 +3,6 @@
 import { useScrollFadeIn } from "@/hooks/useGsap";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-const CLUSTER_STEPS = [
-  "растениеводство",
-  "орошение",
-  "комплекс молочного животноводства",
-  "переработка молока",
-  "глубокая переработка сельхозпродукции",
-];
-
 export default function Section07Strategy() {
   const ref = useScrollFadeIn({ stagger: 0.08 });
 
@@ -101,32 +93,9 @@ export default function Section07Strategy() {
             <li>переработка молока;</li>
             <li>глубокая переработка сельхозпродукции</li>
           </ul>
-          <p className="text-graphite text-lg leading-relaxed mb-10">
+          <p className="text-graphite text-lg leading-relaxed">
             создаёт модель устойчивого агропромышленного кластера с высокой капитализацией и долгосрочным потенциалом роста.
           </p>
-
-          <div className="bg-white rounded-sm border border-gray-200/60 p-8 text-center">
-            <h4 className="text-lg font-medium text-graphite mb-6">
-              Агрокластер полного цикла
-            </h4>
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-sm">
-              {CLUSTER_STEPS.map((step, i) => (
-                <span key={step} className="flex items-center gap-2">
-                  <span className="px-3 py-2 bg-forest/5 text-forest rounded-sm border border-forest/10 font-medium capitalize">
-                    {step}
-                  </span>
-                  {i < CLUSTER_STEPS.length - 1 && (
-                    <svg className="w-4 h-4 text-gold flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M6 3l5 5-5 5" />
-                    </svg>
-                  )}
-                </span>
-              ))}
-            </div>
-            <p className="mt-6 text-gray-400 text-sm">
-              Модель устойчивого агропромышленного кластера с высокой капитализацией и долгосрочным потенциалом роста
-            </p>
-          </div>
         </div>
       </div>
     </section>
