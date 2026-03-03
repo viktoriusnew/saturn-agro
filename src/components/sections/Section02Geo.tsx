@@ -222,7 +222,7 @@ export default function Section02Geo() {
               </h3>
             </div>
             
-            <p className="text-white leading-relaxed mb-12 px-2">
+            <p className="text-white leading-relaxed mb-[50px] px-2">
               Зона наиболее плодородных земель региона — высокопродуктивные чернозёмы с оптимальным климатом.
             </p>
             
@@ -267,7 +267,7 @@ export default function Section02Geo() {
               </h3>
             </div>
             
-            <p className="text-white leading-relaxed mb-12 px-2">
+            <p className="text-white leading-relaxed mb-[50px] px-2">
               Непосредственная близость к крупному водному ресурсу создаёт уникальное стратегическое преимущество.
             </p>
             
