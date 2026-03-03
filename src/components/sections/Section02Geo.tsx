@@ -226,7 +226,7 @@ export default function Section02Geo() {
               Зона наиболее плодородных земель региона — высокопродуктивные чернозёмы с оптимальным климатом.
             </p>
             
-            <div className="bg-white/5 rounded-xl p-8 border border-white/5">
+            <div className="bg-white/5 rounded-xl p-8 border border-white/5 mt-12">
               <p className="text-gold text-sm font-semibold mb-8 uppercase tracking-wider">Ключевые преимущества</p>
               <ul ref={list1Ref} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
                 {LIST_2_1.map((item, i) => (
@@ -271,7 +271,7 @@ export default function Section02Geo() {
               Непосредственная близость к крупному водному ресурсу создаёт уникальное стратегическое преимущество.
             </p>
             
-            <div className="bg-white/5 rounded-xl p-8 border border-white/5">
+            <div className="bg-white/5 rounded-xl p-8 border border-white/5 mt-12">
               <p className="text-[#4A90C4] text-sm font-semibold mb-8 uppercase tracking-wider">Возможности</p>
               <ul ref={list2Ref} className="grid grid-cols-1 gap-y-5">
                 {LIST_2_2.slice(0, -1).map((item, i) => (
