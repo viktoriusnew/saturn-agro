@@ -81,7 +81,7 @@ export const INFRASTRUCTURE_ITEMS = [
   { label: "Токовые площадки", icon: "grain" },
   { label: "Сушильно-очистительный комплекс", icon: "dryer" },
   { label: "Ремонтная база", icon: "wrench" },
-  { label: "Парк техники", icon: "tractor" },
+  { label: "Парк современной техники", icon: "tractor" },
   { label: "Нефтебаза", icon: "fuel" },
   { label: "Автозаправочный пункт", icon: "gas" },
   { label: "Административные здания", icon: "office" },
