@@ -71,7 +71,6 @@ export default function Section03LandBank() {
               <span ref={ownedRef} className="text-4xl font-light text-graphite">0</span>
               <span className="text-gold text-lg">га</span>
             </div>
-            <p className="mt-3 text-gray-500 text-sm">~{ownedPercent}% земельного банка</p>
           </div>
 
           <div className="bg-white rounded-sm border border-gray-200/60 p-8">
@@ -83,7 +82,6 @@ export default function Section03LandBank() {
               <span className="text-4xl font-light text-graphite">{leasedHa.replace(/\s/g, "\u00A0")}</span>
               <span className="text-gold text-lg">га</span>
             </div>
-            <p className="mt-3 text-gray-500 text-sm">Срок свыше 15 лет с преимущественным правом выкупа</p>
           </div>
         </div>
       </div>
