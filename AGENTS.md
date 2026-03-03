@@ -115,6 +115,13 @@ journalctl -u saturn-agro -f     # Логи
 - **Deployment:** VPS с systemd + Nginx + Let's Encrypt
 - **Repository:** https://github.com/viktoriusnew/saturn-agro
 
+## Spacing Guidelines
+**Важно для продакшена:**
+- Для точных значений отступов (особенно кастомных пиксельных значений) используй **inline styles** вместо Tailwind классов
+- Tailwind классы типа `mt-12`, `mb-[50px]` могут не применяться в продакшене из-за минификации CSS или tree-shaking
+- **Рабочий пример:** `style={{ marginTop: '50px' }}` вместо `className="mt-12"`
+- Это особенно важно для критичных отступов между блоками контента
+
 ## AI Assistant Guidelines
 When working on this project:
 1. Always check docs/LAYOUT.md before editing sections
