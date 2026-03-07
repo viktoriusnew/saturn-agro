@@ -51,8 +51,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-*.mp4
+# Large video files
 *.mov
 *.avi
 photo_*.jpg
 СЕЛЬХОЗ*
+
+# But allow compressed agriculture video
+!public/video/agriculture.mp4
+!public/video/hero.mp4
