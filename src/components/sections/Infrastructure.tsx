@@ -1,113 +1,138 @@
 "use client";
 
-import { useScrollFadeIn, useCountUp } from "@/hooks/useGsap";
-import { INFRASTRUCTURE_ITEMS, ENGINEERING } from "@/lib/constants";
-import SectionHeading from "@/components/ui/SectionHeading";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const iconSvg: Record<string, React.ReactNode> = {
-  warehouse: (
-    <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M4 16L16 6l12 10v14H4V16z" />
-      <rect x="12" y="20" width="8" height="10" />
-    </svg>
-  ),
-  grain: (
-    <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <circle cx="16" cy="16" r="10" />
-      <path d="M16 6v20M6 16h20" />
-    </svg>
-  ),
-  dryer: (
-    <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <rect x="6" y="4" width="20" height="24" rx="2" />
-      <path d="M10 12h12M10 16h12M10 20h12" opacity="0.5" />
-      <circle cx="16" cy="8" r="2" fill="currentColor" />
-    </svg>
-  ),
-  wrench: (
-    <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M20 4a8 8 0 00-7.5 10.5L4 23l5 5 8.5-8.5A8 8 0 0020 4z" />
-    </svg>
-  ),
-  tractor: (
-    <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <circle cx="10" cy="24" r="4" />
-      <circle cx="24" cy="24" r="3" />
-      <path d="M6 20h8l4-8H8l-2 8zM14 20h12l2-4h-10" />
-    </svg>
-  ),
-  fuel: (
-    <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <rect x="6" y="8" width="14" height="20" rx="1" />
-      <path d="M20 16l4-4v12a2 2 0 004 0V12" />
-      <rect x="9" y="11" width="8" height="6" opacity="0.3" fill="currentColor" />
-    </svg>
-  ),
-  gas: (
-    <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M16 4v8M12 12h8v4l-4 8-4-8v-4z" />
-      <circle cx="16" cy="26" r="2" fill="currentColor" />
-    </svg>
-  ),
-  office: (
-    <svg viewBox="0 0 32 32" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <rect x="4" y="6" width="24" height="22" rx="1" />
-      <rect x="8" y="10" width="4" height="4" opacity="0.4" fill="currentColor" />
-      <rect x="14" y="10" width="4" height="4" opacity="0.4" fill="currentColor" />
-      <rect x="20" y="10" width="4" height="4" opacity="0.4" fill="currentColor" />
-      <rect x="8" y="17" width="4" height="4" opacity="0.4" fill="currentColor" />
-      <rect x="14" y="17" width="4" height="4" opacity="0.4" fill="currentColor" />
-      <rect x="20" y="17" width="4" height="4" opacity="0.4" fill="currentColor" />
-      <rect x="13" y="24" width="6" height="4" />
-    </svg>
-  ),
-};
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const infrastructureItems = [
+  "складские комплексы",
+  "токовые площадки", 
+  "сушильно-очистительный комплекс",
+  "ремонтная база",
+  "премиальный парк техники",
+  "нефтебаза",
+  "автозаправочный пункт",
+  "административные здания",
+];
+
+const engineeringCards = [
+  { name: "промышленное электроснабжение", image: "/images/power.png" },
+  { name: "газоснабжение", image: "/images/gas.png" },
+  { name: "технологическое и хозяйственное водоснабжение", image: "/images/woter.png" },
+];
 
 export default function Infrastructure() {
-  const ref = useScrollFadeIn({ stagger: 0.1 });
-  const areaRef = useCountUp(28000, 2);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const elements = contentRef.current.querySelectorAll(".animate-item");
+    
+    gsap.fromTo(
+      elements,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
-    <section id="infrastructure" className="py-24 md:py-32 section-padding bg-cream">
-      <SectionHeading
-        label="Инфраструктура"
-        title="Полная производственная база"
-        subtitle="Развитая инфраструктура позволяет масштабировать объёмы без существенного увеличения рисков"
+    <section
+      ref={sectionRef}
+      data-card-section
+      className="relative h-screen w-full overflow-hidden"
+      style={{ zIndex: 40 }}
+    >
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ 
+          backgroundImage: "url('/images/infrastructure-bg.png')",
+        }}
       />
+      <div className="absolute inset-0 bg-white/85" />
 
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-baseline gap-2">
-            <span className="text-gray-400 text-xl">более</span>
-            <span ref={areaRef} className="text-5xl md:text-6xl font-light text-graphite">0</span>
-            <span className="text-xl text-gold">м²</span>
+      {/* Content */}
+      <div
+        ref={contentRef}
+        className="relative z-10 h-full flex flex-col justify-center section-padding"
+      >
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="animate-item text-center">
+            <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
+              Раздел 5
+            </span>
           </div>
-          <p className="text-gray-500 mt-2">общая площадь зданий и сооружений</p>
-        </div>
 
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {INFRASTRUCTURE_ITEMS.map((item) => (
-            <div
-              key={item.label}
-              className="bg-white rounded-sm border border-gray-200/60 p-6 text-center hover:border-gold/30 hover:shadow-md transition-all duration-300"
-            >
-              <div className="text-forest mb-4 flex justify-center">{iconSvg[item.icon]}</div>
-              <span className="text-sm font-medium text-graphite">{item.label}</span>
-            </div>
-          ))}
-        </div>
+          <h2 className="animate-item text-center text-4xl md:text-5xl lg:text-6xl font-light text-graphite" style={{ marginTop: '18px' }}>
+            ИНФРАСТРУКТУРА
+          </h2>
 
-        <div className="mt-12 bg-white rounded-sm border border-gray-200/60 p-8">
-          <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4">Инженерное обеспечение</h4>
-          <div className="flex flex-wrap gap-4">
-            {ENGINEERING.map((item) => (
-              <span
+          <p className="animate-item text-center text-xl md:text-2xl text-gray-600" style={{ marginTop: '24px', marginBottom: '15px' }}>
+            Предприятие обладает полной производственной базой:
+          </p>
+          
+          <div className="animate-item grid grid-cols-2 md:grid-cols-4 gap-3" style={{ marginBottom: '20px' }}>
+            {infrastructureItems.map((item) => (
+              <div 
                 key={item}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-cream rounded-sm text-sm text-graphite border border-gray-200/60"
+                className="flex items-center gap-2 p-3"
               >
-                <span className="w-1.5 h-1.5 bg-forest rounded-full" />
-                {item}
-              </span>
+                <div className="w-2 h-2 rounded-full bg-forest flex-shrink-0" />
+                <span className="text-gray-700 text-base">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="animate-item bg-gradient-to-br from-forest to-forest-light text-white rounded-2xl p-8 shadow-2xl text-center" style={{ maxWidth: '500px', margin: '0 auto 24px' }}>
+            <p className="text-white/80 text-lg mb-2">Общая площадь зданий и сооружений превышает</p>
+            <div className="text-6xl md:text-7xl font-bold mb-4">
+              28 000
+            </div>
+            <div className="text-3xl font-light text-gold">
+              кв. м.
+            </div>
+          </div>
+
+          <h3 className="animate-item text-center text-xl md:text-2xl font-medium text-graphite mb-6">Инженерное обеспечение</h3>
+          
+          <div className="animate-item grid grid-cols-1 md:grid-cols-3 gap-4">
+            {engineeringCards.map((card) => (
+              <div 
+                key={card.name}
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="h-32 overflow-hidden">
+                  <img 
+                    src={card.image} 
+                    alt={card.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <span className="text-sm font-medium text-graphite">{card.name}</span>
+                </div>
+              </div>
             ))}
           </div>
         </div>

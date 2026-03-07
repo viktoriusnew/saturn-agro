@@ -1,74 +1,103 @@
 "use client";
 
-import { useScrollFadeIn } from "@/hooks/useGsap";
-import SectionHeading from "@/components/ui/SectionHeading";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Finance() {
-  const ref = useScrollFadeIn({ stagger: 0.15 });
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const elements = contentRef.current.querySelectorAll(".animate-item");
+    
+    gsap.fromTo(
+      elements,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
-    <section id="finance" className="py-24 md:py-32 section-padding bg-graphite">
-      <SectionHeading
-        label="Финансовые показатели"
-        title="Устойчивый операционный результат"
-        subtitle="Нормализованные финансовые показатели подтверждают эффективность операционной модели"
-        light
+    <section
+      ref={sectionRef}
+      data-card-section
+      className="relative h-screen w-full overflow-hidden bg-cream"
+      style={{ zIndex: 50 }}
+    >
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-8"
+        style={{ backgroundImage: "url('/images/grafic.png')" }}
       />
 
-      <div ref={ref} className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-graphite-light/50 rounded-sm border border-white/10 p-8">
-            <span className="text-sm text-gold uppercase tracking-wider">Годовая выручка</span>
-            <div className="mt-4 flex items-baseline gap-2">
-              <span className="text-4xl md:text-5xl font-light text-white">1,25–1,45</span>
-              <span className="text-xl text-gold">млрд ₽</span>
+      <div
+        ref={contentRef}
+        className="relative z-10 h-full flex flex-col justify-center section-padding"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="animate-item text-center">
+            <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
+              Раздел 6
+            </span>
+          </div>
+
+          <h2 className="animate-item text-center text-4xl md:text-5xl lg:text-6xl font-light text-graphite" style={{ marginTop: '30px' }}>
+            ФИНАНСОВЫЕ ПОКАЗАТЕЛИ
+          </h2>
+
+          <p className="animate-item text-center text-xl text-gray-600" style={{ marginTop: '15px' }}>
+            Нормализованный период
+          </p>
+
+          <div className="animate-item grid md:grid-cols-3 gap-6" style={{ marginTop: '30px' }}>
+            <div className="bg-white rounded-2xl p-8 shadow-xl text-center flex flex-col justify-center" style={{ minHeight: '320px' }}>
+              <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">Годовая выручка</div>
+              <div className="text-5xl md:text-6xl font-bold text-forest mb-2">
+                1,25–1,45
+              </div>
+              <div className="text-2xl text-gold font-medium">млрд рублей</div>
             </div>
 
-            <div className="mt-8 space-y-3">
-              {[
-                { year: "Базовый", value: 72 },
-                { year: "Средний", value: 84 },
-                { year: "Высокий", value: 100 },
-              ].map((bar) => (
-                <div key={bar.year} className="flex items-center gap-3">
-                  <span className="text-white/40 text-xs w-16">{bar.year}</span>
-                  <div className="flex-1 h-2 bg-white/5 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-forest to-forest-light rounded-full"
-                      style={{ width: `${bar.value}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
+            <div className="bg-white rounded-2xl p-8 shadow-xl text-center flex flex-col justify-center" style={{ minHeight: '320px' }}>
+              <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">EBITDA</div>
+              <div className="text-5xl md:text-6xl font-bold text-forest mb-2">
+                420–600
+              </div>
+              <div className="text-2xl text-gold font-medium">млн рублей в год</div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-xl text-center flex flex-col justify-center" style={{ minHeight: '320px' }}>
+              <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">Денежный поток</div>
+              <div className="text-4xl md:text-5xl font-bold text-forest mb-2">
+                Устойчивый
+              </div>
+              <div className="text-2xl text-gold font-medium">операционный</div>
             </div>
           </div>
 
-          <div className="bg-graphite-light/50 rounded-sm border border-white/10 p-8">
-            <span className="text-sm text-gold uppercase tracking-wider">EBITDA</span>
-            <div className="mt-4 flex items-baseline gap-2">
-              <span className="text-4xl md:text-5xl font-light text-white">420–600</span>
-              <span className="text-xl text-gold">млн ₽</span>
-            </div>
-
-            <div className="mt-8 space-y-3">
-              {[
-                { label: "Маржа EBITDA", value: "~33%" },
-                { label: "Операционный CF", value: "Стабильный" },
-                { label: "Деятельность", value: "С 2008 г." },
-              ].map((item) => (
-                <div key={item.label} className="flex justify-between items-center py-2 border-b border-white/5">
-                  <span className="text-white/40 text-sm">{item.label}</span>
-                  <span className="text-white font-medium text-sm">{item.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-graphite-light/30 rounded-sm border border-white/5 px-6 py-4">
-          <p className="text-white/30 text-xs leading-relaxed">
-            * Данные представлены в обобщённом виде за нормализованный период.
-            Детальная финансовая информация доступна в dataroom после подписания NDA.
+          <p className="animate-item text-center text-lg text-gray-700" style={{ marginTop: '15px' }}>
+            Данные показатели подтверждают эффективность действующей операционной модели.
           </p>
         </div>
       </div>

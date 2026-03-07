@@ -1,73 +1,89 @@
 "use client";
 
-import { useCountUp, useScrollFadeIn } from "@/hooks/useGsap";
-import SectionHeading from "@/components/ui/SectionHeading";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function LandBank() {
-  const ownedRef = useCountUp(9502, 2);
-  const leasedRef = useCountUp(12501, 2);
-  const fadeRef = useScrollFadeIn();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  const totalHa = "22 002,96";
-  const ownedPercent = Math.round((9502 / 22002.96) * 100);
-  const leasedPercent = 100 - ownedPercent;
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const elements = contentRef.current.querySelectorAll(".animate-item");
+    
+    gsap.fromTo(
+      elements,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
-    <section id="land" className="py-24 md:py-32 section-padding bg-cream">
-      <SectionHeading
-        label="Земельный банк"
-        title="Консолидированный массив"
-        subtitle="Управляемый земельный банк обеспечивает масштаб и устойчивость производственного процесса"
+    <section
+      ref={sectionRef}
+      data-card-section
+      className="relative h-screen w-full overflow-hidden"
+      style={{ zIndex: 20 }}
+    >
+      {/* Background Image with light overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ 
+          backgroundImage: "url('/images/landbank-bg.jpg')",
+        }}
       />
+      <div className="absolute inset-0 bg-white/80" />
 
-      <div ref={fadeRef} className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-baseline gap-3">
-            <span className="text-6xl md:text-8xl font-light text-graphite tracking-tight">
-              {totalHa}
+      {/* Content */}
+      <div
+        ref={contentRef}
+        className="relative z-10 h-full flex flex-col justify-center items-center section-padding"
+      >
+        <div className="w-full max-w-6xl text-center">
+          <div className="animate-item">
+            <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
+              Раздел 3
             </span>
-            <span className="text-2xl md:text-3xl text-gold font-medium">га</span>
-          </div>
-          <p className="mt-3 text-gray-500">Общая площадь сельскохозяйственных угодий</p>
-        </div>
-
-        <div className="relative mb-12">
-          <div className="h-3 bg-gray-200 rounded-full overflow-hidden flex">
-            <div
-              className="h-full bg-forest rounded-l-full transition-all duration-1000"
-              style={{ width: `${ownedPercent}%` }}
-            />
-            <div
-              className="h-full bg-gold rounded-r-full transition-all duration-1000"
-              style={{ width: `${leasedPercent}%` }}
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-sm border border-gray-200/60 p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-3 h-3 rounded-full bg-forest" />
-              <span className="text-sm text-gray-400 uppercase tracking-wider">В собственности</span>
-            </div>
-            <div className="flex items-baseline gap-2">
-              <span ref={ownedRef} className="text-4xl font-light text-graphite">0</span>
-              <span className="text-gold text-lg">га</span>
-            </div>
-            <p className="mt-3 text-gray-500 text-sm">~{ownedPercent}% земельного банка</p>
           </div>
 
-          <div className="bg-white rounded-sm border border-gray-200/60 p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-3 h-3 rounded-full bg-gold" />
-              <span className="text-sm text-gray-400 uppercase tracking-wider">Долгосрочная аренда</span>
+          <h2 className="animate-item mt-8 text-4xl md:text-5xl lg:text-6xl font-light text-graphite">
+            ЗЕМЕЛЬНЫЙ БАНК
+          </h2>
+
+          <div className="animate-item mt-12">
+            <p className="text-xl md:text-2xl text-gray-600 mb-6">
+              Общая площадь сельскохозяйственных угодий
+            </p>
+            <div className="text-[8rem] md:text-[12rem] lg:text-[16rem] font-bold text-forest leading-none tracking-tighter">
+              22 002,96
+              <span className="text-4xl md:text-6xl lg:text-8xl font-medium block mt-8 text-forest">га</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span ref={leasedRef} className="text-4xl font-light text-graphite">0</span>
-              <span className="text-gold text-lg">га</span>
-            </div>
-            <p className="mt-3 text-gray-500 text-sm">Срок свыше 15 лет с правом выкупа</p>
           </div>
+
+          <p className="animate-item text-lg md:text-xl text-gray-700 leading-relaxed" style={{ marginTop: '100px', textAlign: 'center', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>
+            Собственность компании ~9 502 га. Долгосрочная аренда ~12 500,96 га сроком свыше 15 лет с преимущественным правом выкупа. Консолидированный массив обеспечивает управляемость, масштаб и устойчивость производственного процесса.
+          </p>
         </div>
       </div>
     </section>
