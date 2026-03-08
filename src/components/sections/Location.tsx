@@ -69,16 +69,16 @@ export default function Location() {
         {/* Map Container */}
         <div className="animate-item w-full max-w-6xl mx-auto" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
           <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-lg overflow-hidden shadow-2xl bg-gray-100">
-            {/* Замените src на URL iframe с amap.com */}
+            {/* Amap (高德地图) с маркером на координатах 49.584086, 42.232112 */}
             <iframe
-              src="https://www.amap.com/"
+              src="https://uri.amap.com/marker?position=42.232112,49.584086&name=Сатурн-Агро&src=Сатурн-Агро&coordinate=gaode&callnative=0"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Карта расположения"
+              title="Карта расположения Сатурн-Агро"
               className="absolute inset-0"
             />
           </div>
@@ -99,7 +99,7 @@ export default function Location() {
               <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-12">
                 <div>
                   <span className="text-sm text-gray-500 uppercase tracking-wider">GPS координаты</span>
-                  <p className="text-graphite font-medium mt-1">48.6543° N, 43.1234° E</p>
+                  <p className="text-graphite font-medium mt-1">49.5841° N, 42.2321° E</p>
                 </div>
                 <div>
                   <span className="text-sm text-gray-500 uppercase tracking-wider">Расстояние до Волгограда</span>
