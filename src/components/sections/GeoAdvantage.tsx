@@ -64,7 +64,7 @@ export default function GeoAdvantage() {
         ref={contentRef}
         className="relative z-10 h-full flex flex-col justify-center section-padding"
       >
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto w-full text-center">
           <div className="animate-item">
             <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
               Раздел 2
