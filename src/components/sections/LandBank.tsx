@@ -75,9 +75,9 @@ export default function LandBank() {
             <p className="text-xl md:text-2xl text-gray-600 mb-6">
               Общая площадь сельскохозяйственных угодий
             </p>
-            <div className="text-[8rem] md:text-[12rem] lg:text-[16rem] font-bold text-forest leading-none tracking-tighter">
+            <div className="text-[6.8rem] md:text-[10.2rem] lg:text-[13.6rem] font-bold text-forest leading-none tracking-tighter">
               22 002,96
-              <span className="text-4xl md:text-6xl lg:text-8xl font-medium block mt-8 text-forest">га</span>
+              <span className="text-4xl md:text-6xl lg:text-8xl font-medium block mt-8 text-forest tracking-widest">г а</span>
             </div>
           </div>
 
