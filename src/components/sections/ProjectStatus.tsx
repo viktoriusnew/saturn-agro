@@ -71,13 +71,13 @@ export default function ProjectStatus() {
           </h2>
 
           <div className="animate-item" style={{ marginTop: '80px' }}>
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed" style={{ textAlign: 'center', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>
               Предприятие находится в стадии действующей операционной деятельности и обладает всей необходимой базой для перехода к следующему этапу стратегического развития.
             </p>
           </div>
 
           <div className="animate-item" style={{ marginTop: '60px' }}>
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed" style={{ textAlign: 'center', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>
               Возможен переход к следующему этапу взаимодействия: проведение детальных переговоров, структурирование сделки и реализация совместной дорожной карты развития проекта.
             </p>
           </div>
