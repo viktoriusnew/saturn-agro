@@ -88,7 +88,7 @@ export default function Cooperation() {
             ФОРМА СОТРУДНИЧЕСТВА
           </h2>
 
-          <div className="animate-item space-y-4">
+          <div className="animate-item space-y-5">
             {cooperationPoints.map((point, index) => (
               <div
                 key={index}
