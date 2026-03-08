@@ -77,7 +77,7 @@ export default function Infrastructure() {
         ref={contentRef}
         className="relative z-10 h-full flex flex-col justify-center section-padding"
       >
-        <div className="max-w-6xl mx-auto w-full">
+        <div className="w-full">
           <div className="animate-item text-center">
             <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
               Раздел 5
