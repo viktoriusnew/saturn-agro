@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -11,6 +11,13 @@ if (typeof window !== "undefined") {
 export default function Location() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  const copyWeChatId = () => {
+    navigator.clipboard.writeText("Sergey BSV");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   useEffect(() => {
     if (!contentRef.current) return;
@@ -104,10 +111,16 @@ export default function Location() {
                 </a>
               </p>
               
-              <p>
+              <div className="flex items-center justify-center gap-3">
                 <span className="text-gray-600">WeChat: </span>
                 <span className="text-graphite font-medium">Sergey BSV</span>
-              </p>
+                <button
+                  onClick={copyWeChatId}
+                  className="ml-2 px-3 py-1.5 text-sm bg-forest text-white rounded hover:bg-forest/90 transition-colors"
+                >
+                  {copied ? "Скопировано!" : "Копировать ID"}
+                </button>
+              </div>
             </div>
           </div>
         </div>
