@@ -9,6 +9,7 @@ import Finance from "@/components/sections/Finance";
 import Strategy from "@/components/sections/Strategy";
 import Uniqueness from "@/components/sections/Uniqueness";
 import Cooperation from "@/components/sections/Cooperation";
+import ProjectStatus from "@/components/sections/ProjectStatus";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
           <Uniqueness />
           <Cooperation />
         </CardStackContainer>
+        <ProjectStatus />
       </main>
     </>
   );
