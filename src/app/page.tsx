@@ -11,6 +11,7 @@ import Uniqueness from "@/components/sections/Uniqueness";
 import Cooperation from "@/components/sections/Cooperation";
 import ProjectStatus from "@/components/sections/ProjectStatus";
 import VideoPresentation from "@/components/sections/VideoPresentation";
+import Location from "@/components/sections/Location";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
         
         <ProjectStatus />
         <VideoPresentation />
+        <Location />
       </main>
     </>
   );
