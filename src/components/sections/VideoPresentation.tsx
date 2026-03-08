@@ -34,7 +34,7 @@ export default function VideoPresentation() {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        src="/video/hero.mp4"
+        src="/video/presentation.mp4"
         poster="/video/hero-poster.jpg"
         muted
         loop
