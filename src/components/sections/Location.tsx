@@ -71,7 +71,7 @@ export default function Location() {
           <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-lg overflow-hidden shadow-2xl bg-gray-100">
             {/* Amap (高德地图) с маркером на координатах 49.584086, 42.232112 */}
             <iframe
-              src="https://uri.amap.com/marker?position=42.232112,49.584086&name=Сатурн-Агро&src=Сатурн-Агро&coordinate=gaode&callnative=0&zoom=12"
+              src="https://uri.amap.com/navigation?to=42.232112,49.584086,Сатурн-Агро&mode=car&policy=1&src=Сатурн-Агро&coordinate=gaode&callnative=0"
               width="100%"
               height="100%"
               style={{ border: 0 }}
