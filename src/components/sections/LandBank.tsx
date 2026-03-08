@@ -77,7 +77,7 @@ export default function LandBank() {
             </p>
             <div className="text-[6.8rem] md:text-[10.2rem] lg:text-[13.6rem] font-bold text-forest leading-none tracking-tighter">
               22 002,96
-              <span className="text-4xl md:text-6xl lg:text-8xl font-medium block mt-8 text-forest tracking-widest">г а</span>
+              <span className="text-4xl md:text-6xl lg:text-8xl font-medium block mt-8 text-forest tracking-wide">га</span>
             </div>
           </div>
 
