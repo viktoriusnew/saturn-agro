@@ -1,127 +1,151 @@
-# Сатурн-Агро — Корпоративный сайт-лендинг
+﻿# Saturn Agro
 
-Инвестиционная презентация агропромышленного актива ООО «Сатурн-Агро».
+Корпоративный инвестиционный лендинг для проекта ООО «Сатурн-Агро».
 
-**Сайт:** https://saturn-agro.com
+Продакшен: <https://saturn-agro.com>
 
-## Стек
+## Что в проекте сейчас
 
-- **Next.js 16** (App Router, SSR)
-- **Remotion** — программная генерация видео (композиции в `remotion/`)
-- **TypeScript**
-- **Tailwind CSS 4**
-- **GSAP** + ScrollTrigger — скролл-анимации, countUp, SVG-отрисовка
-- **Framer Motion** — hover-эффекты, переходы
-- **Lottie React** — (подготовлено для JSON-анимаций)
-- **HTML5 Video** — hero-фон + видео-плеер
+- Next.js 16 (App Router, TypeScript)
+- Tailwind CSS 4
+- GSAP + ScrollTrigger (скролл-анимации и card stacking)
+- Framer Motion (hover/press эффекты)
+- Remotion + `@remotion/player` (таймлайн-анимация)
+- Локальные ассеты: видео, изображения, шрифт Inter
 
-## Структура секций (12 блоков)
+Текущая страница собирается в `src/app/page.tsx` из 10 блоков:
 
-1. **Hero** — видео-фон, заголовок, ключевые цифры, 2 CTA
-2. **Почему стратегический актив** — 7 карточек с SVG-иконками
-3. **География** — SVG-карта Волгоградской области, река Дон
-4. **Земельный банк** — 22 002,96 га
-5. **Культуры** — сетка 12 культур
-6. **Инфраструктура** — 8 объектов, инженерное обеспечение
-7. **Финансы** — выручка, EBITDA, дисклеймер
-8. **Стратегия роста** — 3 направления + схема агрокластера
-9. **Сделка** — 49% / 3 млрд / направления инвестиций
-10. **Статус проекта** — таймлайн 3-6-12-24 мес
-11. **Видео-презентация** — HTML5 плеер с lazy-load
-12. **Контакты** — форма заявки, WeChat, телефон, email
+1. Hero
+2. GeneralInfo
+3. GeoAdvantage
+4. LandBank
+5. ProductionProfile
+6. Infrastructure
+7. Finance
+8. Strategy
+9. Uniqueness
+10. Cooperation
 
-## Документация
+## Структура репозитория
 
-- **[docs/LAYOUT.md](docs/LAYOUT.md)** — рекомендации по вёрстке и центрированию контента (использовать при изменениях блоков или редактировании).
+```text
+.github/workflows/
+  deploy.yml                 # автодеплой на VPS при push в main
 
-## Структура проекта
+docs/
+  LAYOUT.md                  # правила по верстке и центровке контента
 
-```
+public/
+  animations/                # mp4-ролики, в т.ч. для секций
+  fonts/
+  images/
+  video/
+
+remotion/
+  index.ts
+  Root.tsx
+  Compositions/
+    HelloWorld.tsx
+    Section01Timeline.tsx
+
 src/
-├── app/
-│   ├── layout.tsx          # RootLayout, мета, шрифты
-│   ├── page.tsx            # Сборка всех секций
-│   └── globals.css         # Tailwind 4, дизайн-система, анимации
-├── components/
-│   ├── layout/
-│   │   ├── Header.tsx      # Sticky header, навигация по якорям
-│   │   └── Footer.tsx
-│   ├── sections/           # 12 секций лендинга
-│   │   ├── Hero.tsx
-│   │   ├── WhyStrategic.tsx
-│   │   ├── GeoMap.tsx
-│   │   ├── LandBank.tsx
-│   │   ├── Crops.tsx
-│   │   ├── Infrastructure.tsx
-│   │   ├── Finance.tsx
-│   │   ├── Strategy.tsx
-│   │   ├── Deal.tsx
-│   │   ├── ProjectStatus.tsx
-│   │   ├── VideoPresentation.tsx
-│   │   └── Contacts.tsx
-│   └── ui/                 # UI-компоненты
-│       ├── Button.tsx
-│       ├── Card.tsx
-│       └── SectionHeading.tsx
-├── hooks/
-│   └── useGsap.ts          # useScrollFadeIn, useCountUp, useDrawSVG
-└── lib/
-    └── constants.ts         # Все данные, цифры, тексты
+  app/
+    globals.css
+    layout.tsx
+    page.tsx
+  components/
+    CardStackContainer.tsx
+    sections/
+      Hero.tsx
+      GeneralInfo.tsx
+      GeoAdvantage.tsx
+      LandBank.tsx
+      ProductionProfile.tsx
+      Infrastructure.tsx
+      Finance.tsx
+      Strategy.tsx
+      Uniqueness.tsx
+      Cooperation.tsx
+    ui/
+      Button.tsx
+      Card.tsx
+      SectionHeading.tsx
+      TimelinePlayer.tsx
+  hooks/
+    useGsap.ts
+    useGsapContext.ts
+  lib/
+    constants.ts
 ```
+
+## Локальный запуск
+
+Требуется Node.js 20+.
+
+```bash
+npm ci
+npm run dev
+```
+
+Открыть: <http://localhost:3000>
 
 ## Команды
 
 ```bash
-npm run dev              # Запуск dev-сервера (порт 3000)
-npm run build            # Продакшен-сборка
-npm start                # Запуск продакшен-сервера
-npm run remotion:studio  # Remotion Studio (превью анимаций)
+npm run dev              # dev-сервер
+npm run build            # production build
+npm run start            # запуск production-сервера
+npm run lint             # ESLint
+npm run remotion:studio  # Remotion Studio
+npm run remotion:render  # render через remotion/index.ts
 ```
 
-**Рендер видео Remotion:**
-```bash
-npx remotion render remotion/index.ts <CompositionId> public/animations/<имя>.mp4
-```
-
-**Вставка на сайт:** использовать Remotion Player (не `<video>`), см. скил `remotion-saturn-agro`.
-
-## Деплой на VPS
-
-Сервис управляется через systemd:
+Пример ручного рендера композиции:
 
 ```bash
-systemctl status saturn-agro     # Статус
-systemctl restart saturn-agro    # Перезапуск
-systemctl stop saturn-agro       # Остановка
-journalctl -u saturn-agro -f     # Логи
+npx remotion render remotion/index.ts Section01Timeline public/animations/section01-timeline.mp4
 ```
 
-Nginx: `/etc/nginx/sites-available/saturn-agro`  
-SSL: Let's Encrypt (автообновление certbot)
+## Автодеплой на VPS
 
-## Пересборка после изменений
+Автодеплой настроен в `.github/workflows/deploy.yml`.
+
+Триггер:
+- push в ветку `main`
+
+Что делает workflow на VPS:
+1. Переходит в `/root/saturn-agro`
+2. Обновляет код из `origin/main`
+3. Пересобирает проект (`npm ci`, `npm run build`)
+4. Перезапускает systemd-сервис `saturn-agro`
+
+Нужные GitHub Secrets:
+- `VPS_HOST`
+- `VPS_USER`
+- `VPS_SSH_KEY`
+
+## Ручной деплой на сервере
 
 ```bash
 cd /root/saturn-agro
+git fetch origin main
+git reset --hard origin/main
+npm ci
 npm run build
 systemctl restart saturn-agro
 ```
 
-## Дизайн-система
+Проверка:
 
-| Цвет | HEX | Применение |
-|------|-----|------------|
-| Graphite | #1a1a2e | Основной тёмный фон |
-| Forest | #16423C | Акцент зелёный |
-| Gold | #C4A35A | Акцент золото, CTA |
-| Cream | #FAFAF8 | Светлый фон секций |
+```bash
+systemctl status saturn-agro
+journalctl -u saturn-agro -f
+```
 
-**Шрифт:** Inter (Variable, локальный woff2)
+## Где править контент
 
-## Видео
+- Контент секций: `src/components/sections/*.tsx`
+- Общие константы и данные: `src/lib/constants.ts`
+- Глобальные токены/стили: `src/app/globals.css`
 
-| Файл | Размер | Назначение |
-|------|--------|------------|
-| hero.mp4 | 9 МБ | Фон Hero (autoplay, muted, loop) |
-| hero-poster.jpg | 322 КБ | Poster для hero |
-| presentation.mp4 | 44 МБ | Видео-плеер перед контактами |
+Для правок layout/spacing см. `docs/LAYOUT.md`.
