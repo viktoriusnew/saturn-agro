@@ -99,7 +99,7 @@ export default function Strategy() {
     >
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/video/hero.mp4"
+        src="/video/agriculture.mp4"
         autoPlay
         muted
         loop

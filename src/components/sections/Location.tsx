@@ -121,6 +121,16 @@ export default function Location() {
                   {copied ? "Скопировано!" : "Копировать ID"}
                 </button>
               </div>
+              <div
+                className="flex justify-center"
+                style={{ marginTop: "32px" }}
+              >
+                <img
+                  src="/images/wechat.png"
+                  alt="WeChat QR"
+                  className="w-full max-w-[260px] rounded-lg shadow-md"
+                />
+              </div>
             </div>
           </div>
         </div>

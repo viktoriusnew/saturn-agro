@@ -81,7 +81,7 @@ export default function LandBank() {
             </div>
           </div>
 
-          <p className="animate-item text-lg md:text-xl text-gray-700 leading-relaxed" style={{ marginTop: '100px', textAlign: 'center', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>
+          <p className="animate-item text-xl md:text-[22px] font-semibold text-gray-700 leading-relaxed" style={{ marginTop: '100px', textAlign: 'center', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>
             Собственность компании ~9 502 га. Долгосрочная аренда ~12 500,96 га сроком свыше 15 лет с преимущественным правом выкупа. Консолидированный массив обеспечивает управляемость, масштаб и устойчивость производственного процесса.
           </p>
         </div>

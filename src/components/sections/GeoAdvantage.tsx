@@ -16,7 +16,7 @@ export default function GeoAdvantage() {
     if (!contentRef.current) return;
 
     const elements = contentRef.current.querySelectorAll(".animate-item");
-    
+
     gsap.fromTo(
       elements,
       { opacity: 0, y: 40 },
@@ -46,32 +46,17 @@ export default function GeoAdvantage() {
       className="relative w-full overflow-hidden pt-24"
       style={{ zIndex: 10, paddingBottom: "100px" }}
     >
-      {/* Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/video/agriculture.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-
-      {/* Light overlay for better text visibility */}
       <div className="absolute inset-0 bg-white/75" />
 
-      {/* Content */}
-      <div
-        ref={contentRef}
-        className="relative z-10 section-padding"
-      >
+      <div ref={contentRef} className="relative z-10 section-padding">
         <div className="w-full text-center">
           <div className="animate-item" style={{ marginTop: "100px" }}>
-            <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
+            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
               Раздел 2
             </span>
           </div>
 
-          <h2 className="animate-item mt-8 text-4xl md:text-5xl lg:text-6xl font-light text-graphite leading-[1.1] tracking-tight">
+          <h2 className="animate-item mt-8 text-4xl font-light leading-[1.1] tracking-tight text-graphite md:text-5xl lg:text-6xl">
             Географическое
             <br />
             <span className="font-medium">и природное</span>
@@ -79,38 +64,83 @@ export default function GeoAdvantage() {
             <span className="font-medium">преимущество</span>
           </h2>
 
-          <div className="animate-item mt-12 grid md:grid-cols-2 gap-8 lg:gap-12">
-            <div className="bg-white/30 backdrop-blur-sm rounded-lg" style={{ padding: '48px' }}>
-              <h3 className="text-xl lg:text-2xl font-medium text-graphite mb-6">
-                Север Волгоградской области — зона наиболее плодородных земель региона
+          <div
+            className="animate-item grid gap-8 md:grid-cols-2 lg:gap-12"
+            style={{ marginTop: "50px" }}
+          >
+            <div className="rounded-lg bg-white/30 backdrop-blur-sm" style={{ padding: "48px" }}>
+              <h3
+                className="text-2xl font-medium text-graphite lg:text-3xl"
+                style={{ marginBottom: "20px" }}
+              >
+                Север Волгоградской области — зона наиболее плодородных земель
+                региона
               </h3>
-              <p className="text-gray-700 mb-6">
-                Предприятие расположено в северной части Волгоградской области — зоне высокопродуктивных чернозёмов.
-              </p>
-              <div className="space-y-3">
-                <p className="text-gray-800"><span className="text-forest font-medium">•</span> естественно плодородные почвы</p>
-                <p className="text-gray-800"><span className="text-forest font-medium">•</span> более благоприятный климат по влагообеспеченности</p>
-                <p className="text-gray-800"><span className="text-forest font-medium">•</span> стабильность урожайности</p>
-                <p className="text-gray-800"><span className="text-forest font-medium">•</span> сниженные риски засух</p>
+
+              <div
+                className="space-y-4 text-left text-lg font-semibold leading-relaxed text-gray-700 lg:text-xl"
+                style={{ marginTop: "20px" }}
+              >
+                <p>
+                  Предприятие расположено в северной части Волгоградской области
+                  — зоне высокопродуктивных чернозёмов.
+                </p>
+                <p>
+                  <span className="font-medium text-forest">•</span> естественно
+                  плодородные почвы
+                </p>
+                <p>
+                  <span className="font-medium text-forest">•</span> более
+                  благоприятный климат по влагообеспеченности
+                </p>
+                <p>
+                  <span className="font-medium text-forest">•</span> стабильность
+                  урожайности
+                </p>
+                <p>
+                  <span className="font-medium text-forest">•</span> сниженные
+                  риски засух
+                </p>
               </div>
             </div>
 
-            <div className="bg-white/30 backdrop-blur-sm rounded-lg" style={{ padding: '48px' }}>
-              <h3 className="text-xl lg:text-2xl font-medium text-graphite mb-6">
+            <div className="rounded-lg bg-white/30 backdrop-blur-sm" style={{ padding: "48px" }}>
+              <h3
+                className="text-2xl font-medium text-graphite lg:text-3xl"
+                style={{ marginBottom: "20px" }}
+              >
                 Расположение на берегу реки Дон
               </h3>
-              <p className="text-gray-700 mb-6">
-                Предприятие находится в непосредственной близости к реке Дон, что создаёт стратегическое преимущество:
-              </p>
-              <div className="space-y-3">
-                <p className="text-gray-800"><span className="text-forest font-medium">•</span> наличие крупного и стабильного водного ресурса</p>
-                <p className="text-gray-800"><span className="text-forest font-medium">•</span> возможность внедрения промышленных систем орошения</p>
-                <p className="text-gray-800"><span className="text-forest font-medium">•</span> потенциал существенного увеличения урожайности</p>
-                <p className="text-gray-800"><span className="text-forest font-medium">•</span> снижение климатических рисков</p>
+
+              <div
+                className="space-y-4 text-left text-lg font-semibold leading-relaxed text-gray-700 lg:text-xl"
+                style={{ marginTop: "20px" }}
+              >
+                <p>
+                  Предприятие находится в непосредственной близости к реке Дон,
+                  что создаёт стратегическое преимущество:
+                </p>
+                <p>
+                  <span className="font-medium text-forest">•</span> наличие
+                  крупного и стабильного водного ресурса
+                </p>
+                <p>
+                  <span className="font-medium text-forest">•</span> возможность
+                  внедрения промышленных систем орошения
+                </p>
+                <p>
+                  <span className="font-medium text-forest">•</span> потенциал
+                  существенного увеличения урожайности
+                </p>
+                <p>
+                  <span className="font-medium text-forest">•</span> снижение
+                  климатических рисков
+                </p>
+                <p>
+                  Наличие водного ресурса формирует фундамент для перехода к
+                  интенсивной модели земледелия.
+                </p>
               </div>
-              <p className="text-gray-700 mt-6 italic">
-                Наличие водного ресурса формирует фундамент для перехода к интенсивной модели земледелия.
-              </p>
             </div>
           </div>
         </div>
