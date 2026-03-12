@@ -89,27 +89,6 @@ body {
   }
 }
 
-/* Card Stacking Effect */
-[data-card-section] {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  will-change: transform, filter, opacity;
-  transform-origin: center top;
-  transition: transform 0.1s linear;
-}
-
-/* Prevent body scroll when sections are animating */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Ensure smooth animations */
-[data-card-section] > * {
-  will-change: auto;
-}
-
 /* Custom animations */
 @keyframes fadeInUp {
   from {
@@ -133,12 +112,6 @@ html {
 
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
-  [data-card-section] {
-    position: relative;
-    height: auto;
-    min-height: 100vh;
-  }
-  
   .section-padding {
     padding-left: 1rem;
     padding-right: 1rem;

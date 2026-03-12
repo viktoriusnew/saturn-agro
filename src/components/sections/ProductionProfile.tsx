@@ -58,22 +58,22 @@ export default function ProductionProfile() {
     <section
       ref={sectionRef}
       data-card-section
-      className="relative h-screen w-full overflow-hidden bg-cream"
-      style={{ zIndex: 30 }}
+      className="relative w-full overflow-hidden bg-cream pt-24"
+      style={{ zIndex: 30, paddingBottom: "100px" }}
     >
       <div
         ref={contentRef}
-        className="relative z-10 h-full flex flex-col justify-center section-padding py-12"
+        className="relative z-10 section-padding py-12"
       >
         <div className="max-w-7xl mx-auto w-full">
-          <div className="animate-item text-center mb-8">
+          <div className="animate-item text-center mb-8" style={{ marginTop: "100px" }}>
             <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
               Раздел 4
             </span>
           </div>
 
           <h2 className="animate-item text-center text-4xl md:text-5xl lg:text-6xl font-light text-graphite" style={{ marginBottom: '12px' }}>
-            ПРОИЗВОДСТВЕННЫЙ ПРОФИЛЬ
+            Производственный профиль
           </h2>
 
           <p className="animate-item text-center text-xl text-gray-600" style={{ marginBottom: '12px' }}>

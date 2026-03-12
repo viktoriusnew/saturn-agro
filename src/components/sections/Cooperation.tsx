@@ -70,22 +70,22 @@ export default function Cooperation() {
     <section
       ref={sectionRef}
       data-card-section
-      className="relative h-screen w-full overflow-hidden bg-cream"
-      style={{ zIndex: 80 }}
+      className="relative w-full overflow-hidden bg-cream pt-24"
+      style={{ zIndex: 80, paddingBottom: "100px" }}
     >
       <div
         ref={contentRef}
-        className="relative z-10 h-full flex flex-col justify-center section-padding"
+        className="relative z-10 section-padding"
       >
         <div className="w-full">
-          <div className="animate-item text-center">
+          <div className="animate-item text-center" style={{ marginTop: "100px" }}>
             <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
               Раздел 9
             </span>
           </div>
 
           <h2 className="animate-item text-center text-4xl md:text-5xl lg:text-6xl font-light text-graphite" style={{ marginTop: '40px', marginBottom: '40px' }}>
-            ФОРМА СОТРУДНИЧЕСТВА
+            Форма сотрудничества
           </h2>
 
           <div className="animate-item" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

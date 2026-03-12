@@ -94,8 +94,8 @@ export default function Strategy() {
     <section
       ref={sectionRef}
       data-card-section
-      className="relative h-screen w-full overflow-hidden"
-      style={{ zIndex: 60 }}
+      className="relative w-full overflow-hidden pt-24"
+      style={{ zIndex: 60, paddingBottom: "100px" }}
     >
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -110,17 +110,17 @@ export default function Strategy() {
 
       <div
         ref={contentRef}
-        className="relative z-10 h-full flex flex-col justify-center section-padding py-8 overflow-y-auto"
+        className="relative z-10 section-padding py-8"
       >
         <div className="max-w-7xl mx-auto w-full">
-          <div className="animate-item text-center mb-6">
+          <div className="animate-item text-center mb-6" style={{ marginTop: "100px" }}>
             <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
               Раздел 7
             </span>
           </div>
 
           <h2 className="animate-item text-center text-3xl md:text-4xl lg:text-5xl font-light text-graphite" style={{ marginBottom: '20px' }}>
-            СТРАТЕГИЯ РАЗВИТИЯ
+            Стратегия развития
           </h2>
 
           {/* Первая строка - 2 карточки */}

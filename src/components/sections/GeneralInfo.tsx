@@ -42,7 +42,8 @@ export default function GeneralInfo() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-28 overflow-hidden"
+      className="relative pt-32 overflow-hidden"
+      style={{ paddingBottom: "100px" }}
     >
       {/* Background Image */}
       <div 
@@ -60,14 +61,14 @@ export default function GeneralInfo() {
         className="relative z-10 section-padding"
       >
         <div className="max-w-6xl">
-          <div className="animate-item">
+          <div className="animate-item" style={{ marginTop: "100px" }}>
             <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
               Раздел 1
             </span>
           </div>
 
           <h2 className="animate-item mt-8 text-4xl md:text-5xl lg:text-6xl font-light text-graphite leading-[1.1] tracking-tight" style={{ marginBottom: '60px' }}>
-            ОБЩАЯ ХАРАКТЕРИСТИКА ПРОЕКТА
+            Общая характеристика проекта
           </h2>
 
           <div className="animate-item max-w-4xl" style={{ display: 'flex', flexDirection: 'column', gap: '40px', paddingBottom: '60px' }}>

@@ -60,7 +60,7 @@ export default function Location() {
         <div className="w-full text-center mb-12">
           <div className="animate-item" style={{ marginTop: '20px' }}>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-graphite">
-              КОНТАКТНАЯ ИНФОРМАЦИЯ
+              Контактная информация
             </h2>
           </div>
         </div>
