@@ -46,6 +46,14 @@ export default function GeoAdvantage() {
       className="relative w-full overflow-hidden pt-24"
       style={{ zIndex: 10, paddingBottom: "100px" }}
     >
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/section1-map-bg.png')",
+          backgroundAttachment: "fixed",
+        }}
+      />
+
       <div className="absolute inset-0 bg-white/75" />
 
       <div ref={contentRef} className="relative z-10 section-padding">

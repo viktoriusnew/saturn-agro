@@ -70,9 +70,16 @@ export default function Cooperation() {
     <section
       ref={sectionRef}
       data-card-section
-      className="relative w-full overflow-hidden bg-cream pt-24"
+      className="relative w-full overflow-hidden pt-24"
       style={{ zIndex: 80, paddingBottom: "100px" }}
     >
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/section9-bg.png')" }}
+      />
+
+      <div className="absolute inset-0 bg-white/45" />
+
       <div
         ref={contentRef}
         className="relative z-10 section-padding"
@@ -106,7 +113,7 @@ export default function Cooperation() {
                   }`}>
                     {index + 1}
                   </div>
-                  <p className={`text-lg leading-relaxed ${
+                  <p className={`text-[20px] font-semibold leading-relaxed ${
                     point.highlight ? "text-white" : "text-gray-700"
                   }`}>
                     {point.text}
@@ -116,8 +123,8 @@ export default function Cooperation() {
             ))}
           </div>
 
-          <div className="animate-item bg-gradient-to-r from-forest to-forest-light rounded-2xl text-white" style={{ padding: '15px', marginTop: '40px' }}>
-            <p className="text-lg leading-relaxed">
+          <div className="animate-item bg-gradient-to-r from-forest to-forest-light rounded-2xl text-white" style={{ padding: '25px', marginTop: '40px' }}>
+            <p className="text-[20px] font-semibold leading-relaxed">
               Такая структура взаимодействия обеспечивает баланс интересов сторон и стимулирует совместную реализацию стратегии развития предприятия.
             </p>
           </div>

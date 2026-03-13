@@ -76,7 +76,7 @@ export default function ProductionProfile() {
             Производственный профиль
           </h2>
 
-          <p className="animate-item text-center text-xl text-gray-600" style={{ marginBottom: '12px' }}>
+          <p className="animate-item text-center text-xl font-semibold text-gray-600" style={{ marginBottom: '12px' }}>
             Диверсифицированный портфель культур
           </p>
 
@@ -98,7 +98,7 @@ export default function ProductionProfile() {
             ))}
           </div>
 
-          <p className="animate-item text-lg md:text-xl text-gray-700 leading-relaxed" style={{ marginTop: '24px', textAlign: 'center', maxWidth: '1000px', marginLeft: 'auto', marginRight: 'auto' }}>
+          <p className="animate-item text-lg md:text-xl font-semibold text-gray-700 leading-relaxed" style={{ marginTop: '24px', textAlign: 'center', maxWidth: '1000px', marginLeft: 'auto', marginRight: 'auto' }}>
             Диверсификация снижает рыночные и климатические риски и обеспечивает экспортный потенциал.
           </p>
         </div>

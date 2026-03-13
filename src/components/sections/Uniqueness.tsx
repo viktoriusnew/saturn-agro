@@ -54,9 +54,19 @@ export default function Uniqueness() {
     <section
       ref={sectionRef}
       data-card-section
-      className="relative w-full overflow-hidden bg-cream pt-24"
+      className="relative w-full overflow-hidden pt-24"
       style={{ zIndex: 70, paddingBottom: "100px" }}
     >
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/section8-bg.png')",
+          backgroundAttachment: "fixed",
+        }}
+      />
+
+      <div className="absolute inset-0 bg-white/68" />
+
       <div
         ref={contentRef}
         className="relative z-10 section-padding"
@@ -74,28 +84,28 @@ export default function Uniqueness() {
             <span className="font-medium">на рынке</span>
           </h2>
 
-          <div className="animate-item bg-white rounded-2xl p-8 lg:p-10 shadow-xl">
-            <p className="text-lg text-gray-700 leading-relaxed" style={{ marginBottom: '20px' }}>
+          <div className="animate-item bg-white rounded-2xl shadow-xl" style={{ padding: '20px' }}>
+            <p className="text-[20px] font-semibold text-gray-700 leading-relaxed" style={{ marginBottom: '30px' }}>
               В настоящее время предложение ООО «Сатурн-Агро» сочетает в себе характеристики, крайне редко представленные в рамках одного действующего предприятия:
             </p>
             
-            <div className="grid md:grid-cols-2 gap-4" style={{ marginBottom: '20px' }}>
+            <div className="grid md:grid-cols-2 gap-4" style={{ marginTop: '10px', marginBottom: '20px' }}>
               {uniquenessPoints.map((point, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-4 bg-forest/5 rounded-lg p-4"
+                  className="flex items-start gap-4 rounded-lg p-[26px]"
                 >
                   <div className="w-8 h-8 rounded-full bg-forest text-white flex items-center justify-center flex-shrink-0 font-bold text-sm">
                     {index + 1}
                   </div>
-                  <span className="text-gray-700 leading-relaxed">{point}</span>
+                  <span className="text-[19px] font-semibold text-gray-700 leading-relaxed">{point}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="animate-item bg-gradient-to-r from-forest to-forest-light rounded-2xl text-white" style={{ padding: '15px', marginTop: '20px' }}>
-            <p className="text-lg leading-relaxed">
+          <div className="animate-item bg-gradient-to-r from-forest to-forest-light rounded-2xl text-white" style={{ padding: '25px', marginTop: '20px' }}>
+            <p className="text-[20px] font-semibold leading-relaxed">
               Одновременное наличие масштабного земельного банка, водного ресурса и действующей инфраструктуры формирует актив стратегического уровня. Подобная комбинация факторов на рынке агробизнеса встречается ограниченно.
             </p>
           </div>

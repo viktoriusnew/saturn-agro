@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-graphite: #1a1a2e;
+  --color-graphite: #000000;
   --color-graphite-light: #2a2a45;
   --color-forest: #16423C;
   --color-forest-light: #1e5a52;
@@ -14,7 +14,7 @@
   --color-gray-300: #D1D1CB;
   --color-gray-400: #9E9E96;
   --color-gray-500: #6B6B63;
-  --color-gray-600: #4A4A44;
+  --color-gray-600: #000000;
   --color-gray-700: #2D2D28;
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
