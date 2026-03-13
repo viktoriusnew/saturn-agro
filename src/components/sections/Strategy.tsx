@@ -108,8 +108,6 @@ export default function Strategy() {
         playsInline
       />
 
-      <div className="absolute inset-0 bg-white/75" />
-
       <div ref={contentRef} className="relative z-10 section-padding py-8">
         <div className="mx-auto w-full max-w-7xl">
           <div className="animate-item text-center" style={{ marginTop: "100px", marginBottom: "24px" }}>
