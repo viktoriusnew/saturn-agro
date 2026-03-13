@@ -4,64 +4,18 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import type { SiteContent } from "@/lib/site-content";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const strategies = [
-  {
-    title: "Внедрение системы орошения",
-    description:
-      "Благодаря расположению у реки Дон возможно внедрение систем промышленного орошения.",
-    effects: [
-      "рост урожайности на 30–60 %",
-      "увеличение валового сбора",
-      "расширение линейки культур",
-      "переход к интенсивной модели земледелия",
-    ],
-    conclusion:
-      "Орошение повышает капитализацию земельного банка и устойчивость бизнеса.",
-  },
-  {
-    title: "Создание комплекса молочного животноводства",
-    description:
-      "Предприятие обладает потенциалом размещения комплекса молочного животноводства мощностью от 2 000 голов крупного рогатого скота.",
-    effects: [
-      "использование собственной кормовой базы",
-      "диверсификация доходов",
-      "формирование стабильного денежного потока",
-      "снижение зависимости от волатильности зернового рынка",
-    ],
-  },
-  {
-    title: "Переработка молока",
-    description:
-      "Развитие молокоперерабатывающего направления позволит:",
-    effects: [
-      "производить готовую молочную продукцию",
-      "увеличивать добавленную стоимость",
-      "формировать вертикально интегрированную модель",
-    ],
-  },
-  {
-    title: "Возведение завода глубокой переработки сельхозпродукции",
-    description:
-      "Строительство завода глубокой переработки сельскохозяйственной продукции создаст возможность:",
-    effects: [
-      "выпускать продукты с высокой добавленной стоимостью",
-      "расширять продуктовую линейку и рынки сбыта",
-      "повышать устойчивость бизнеса",
-    ],
-  },
-  {
-    title: "Формирование агрокластера полного цикла",
-    description:
-      "Связка растениеводства, орошения, комплекса молочного животноводства, переработки молока и глубокой переработки сельхозпродукции создаёт модель устойчивого агропромышленного кластера с высокой капитализацией и долгосрочным потенциалом роста.",
-    effects: [],
-  },
-];
+type StrategyProps = {
+  ui: SiteContent["ui"];
+  content: SiteContent["strategy"];
+};
 
-export default function Strategy() {
+export default function Strategy({ ui, content }: StrategyProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -84,7 +38,7 @@ export default function Strategy() {
           start: "top 60%",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     return () => {
@@ -110,18 +64,24 @@ export default function Strategy() {
 
       <div ref={contentRef} className="relative z-10 section-padding py-8">
         <div className="mx-auto w-full max-w-7xl">
-          <div className="animate-item text-center" style={{ marginTop: "100px", marginBottom: "24px" }}>
+          <div
+            className="animate-item text-center"
+            style={{ marginTop: "100px", marginBottom: "24px" }}
+          >
             <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              Раздел 7
+              {ui.sectionLabel} 7
             </span>
           </div>
 
           <h2 className="animate-item text-center text-3xl font-light text-graphite md:text-4xl lg:text-5xl">
-            Стратегия развития
+            {content.title}
           </h2>
 
-          <div className="animate-item" style={{ marginTop: "40px", display: "flex", flexDirection: "column", gap: "40px" }}>
-            {strategies.map((strategy) => (
+          <div
+            className="animate-item"
+            style={{ marginTop: "40px", display: "flex", flexDirection: "column", gap: "40px" }}
+          >
+            {content.items.map((strategy) => (
               <article
                 key={strategy.title}
                 className="rounded-2xl bg-white/45 shadow-lg backdrop-blur-sm"
@@ -143,7 +103,7 @@ export default function Strategy() {
                   >
                     <p>{strategy.description}</p>
 
-                    {strategy.effects.length > 0 && (
+                    {strategy.effects.length > 0 ? (
                       <div className="space-y-3">
                         {strategy.effects.map((effect) => (
                           <div
@@ -159,13 +119,11 @@ export default function Strategy() {
                           </div>
                         ))}
                       </div>
-                    )}
+                    ) : null}
 
-                    {strategy.conclusion && (
-                      <p className="border-t border-gray-200 pt-4">
-                        {strategy.conclusion}
-                      </p>
-                    )}
+                    {strategy.conclusion ? (
+                      <p className="border-t border-gray-200 pt-4">{strategy.conclusion}</p>
+                    ) : null}
                   </div>
                 </div>
               </article>

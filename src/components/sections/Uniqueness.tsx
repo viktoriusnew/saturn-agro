@@ -4,22 +4,18 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import type { SiteContent } from "@/lib/site-content";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const uniquenessPoints = [
-  "земельный банк более 22 000 га",
-  "расположение в наиболее плодородной зоне региона",
-  "прямой доступ к водным ресурсам реки Дон",
-  "действующая производственная инфраструктура",
-  "устойчивые финансовые показатели",
-  "потенциал масштабного орошения",
-  "возможность создания комплекса молочного животноводства от 2 000 голов",
-  "перспективы глубокой переработки сельскохозяйственной продукции",
-];
+type UniquenessProps = {
+  ui: SiteContent["ui"];
+  content: SiteContent["uniqueness"];
+};
 
-export default function Uniqueness() {
+export default function Uniqueness({ ui, content }: UniquenessProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +23,7 @@ export default function Uniqueness() {
     if (!contentRef.current) return;
 
     const elements = contentRef.current.querySelectorAll(".animate-item");
-    
+
     gsap.fromTo(
       elements,
       { opacity: 0, y: 40 },
@@ -42,7 +38,7 @@ export default function Uniqueness() {
           start: "top 60%",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     return () => {
@@ -67,47 +63,57 @@ export default function Uniqueness() {
 
       <div className="absolute inset-0 bg-white/68" />
 
-      <div
-        ref={contentRef}
-        className="relative z-10 section-padding"
-      >
+      <div ref={contentRef} className="relative z-10 section-padding">
         <div className="w-full">
           <div className="animate-item text-center" style={{ marginTop: "100px" }}>
-            <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
-              Раздел 8
+            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
+              {ui.sectionLabel} 8
             </span>
           </div>
 
-          <h2 className="animate-item text-center text-4xl md:text-5xl lg:text-6xl font-light text-graphite" style={{ marginTop: '40px', marginBottom: '40px' }}>
-            Уникальность предложения
-            <br />
-            <span className="font-medium">на рынке</span>
+          <h2
+            className="animate-item text-center text-4xl font-light text-graphite md:text-5xl lg:text-6xl"
+            style={{ marginTop: "40px", marginBottom: "40px" }}
+          >
+            {content.title[0]}
+            {content.title[1] ? (
+              <>
+                <br />
+                <span className="font-medium">{content.title[1]}</span>
+              </>
+            ) : null}
           </h2>
 
-          <div className="animate-item bg-white rounded-2xl shadow-xl" style={{ padding: '20px' }}>
-            <p className="text-[20px] font-semibold text-gray-700 leading-relaxed" style={{ marginBottom: '30px' }}>
-              В настоящее время предложение ООО «Сатурн-Агро» сочетает в себе характеристики, крайне редко представленные в рамках одного действующего предприятия:
+          <div className="animate-item rounded-2xl bg-white shadow-xl" style={{ padding: "20px" }}>
+            <p
+              className="text-[20px] font-semibold leading-relaxed text-gray-700"
+              style={{ marginBottom: "30px" }}
+            >
+              {content.intro}
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-4" style={{ marginTop: '10px', marginBottom: '20px' }}>
-              {uniquenessPoints.map((point, index) => (
-                <div 
-                  key={index}
-                  className="flex items-start gap-4 rounded-lg p-[26px]"
-                >
-                  <div className="w-8 h-8 rounded-full bg-forest text-white flex items-center justify-center flex-shrink-0 font-bold text-sm">
+
+            <div
+              className="grid gap-4 md:grid-cols-2"
+              style={{ marginTop: "10px", marginBottom: "20px" }}
+            >
+              {content.points.map((point, index) => (
+                <div key={point} className="flex items-start gap-4 rounded-lg p-[26px]">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-forest text-sm font-bold text-white">
                     {index + 1}
                   </div>
-                  <span className="text-[19px] font-semibold text-gray-700 leading-relaxed">{point}</span>
+                  <span className="text-[19px] font-semibold leading-relaxed text-gray-700">
+                    {point}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="animate-item bg-gradient-to-r from-forest to-forest-light rounded-2xl text-white" style={{ padding: '25px', marginTop: '20px' }}>
-            <p className="text-[20px] font-semibold leading-relaxed">
-              Одновременное наличие масштабного земельного банка, водного ресурса и действующей инфраструктуры формирует актив стратегического уровня. Подобная комбинация факторов на рынке агробизнеса встречается ограниченно.
-            </p>
+          <div
+            className="animate-item rounded-2xl bg-gradient-to-r from-forest to-forest-light text-white"
+            style={{ padding: "25px", marginTop: "20px" }}
+          >
+            <p className="text-[20px] font-semibold leading-relaxed">{content.conclusion}</p>
           </div>
         </div>
       </div>

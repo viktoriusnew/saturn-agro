@@ -4,11 +4,18 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import type { SiteContent } from "@/lib/site-content";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function GeoAdvantage() {
+type GeoAdvantageProps = {
+  ui: SiteContent["ui"];
+  content: SiteContent["geoAdvantage"];
+};
+
+export default function GeoAdvantage({ ui, content }: GeoAdvantageProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -31,7 +38,7 @@ export default function GeoAdvantage() {
           start: "top 60%",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     return () => {
@@ -53,103 +60,63 @@ export default function GeoAdvantage() {
           backgroundAttachment: "fixed",
         }}
       />
-
       <div className="absolute inset-0 bg-white/75" />
 
       <div ref={contentRef} className="relative z-10 section-padding">
         <div className="w-full text-center">
           <div className="animate-item" style={{ marginTop: "100px" }}>
             <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              Раздел 2
+              {ui.sectionLabel} 2
             </span>
           </div>
 
           <h2 className="animate-item mt-8 text-4xl font-light leading-[1.1] tracking-tight text-graphite md:text-5xl lg:text-6xl">
-            Географическое
-            <br />
-            <span className="font-medium">и природное</span>
-            <br />
-            <span className="font-medium">преимущество</span>
+            {content.title[0]}
+            {content.title[1] ? (
+              <>
+                <br />
+                <span className="font-medium">{content.title[1]}</span>
+              </>
+            ) : null}
+            {content.title[2] ? (
+              <>
+                <br />
+                <span className="font-medium">{content.title[2]}</span>
+              </>
+            ) : null}
           </h2>
 
           <div
             className="animate-item grid gap-8 md:grid-cols-2 lg:gap-12"
             style={{ marginTop: "50px" }}
           >
-            <div className="rounded-lg bg-white/30 backdrop-blur-sm" style={{ padding: "48px" }}>
-              <h3
-                className="text-2xl font-medium text-graphite lg:text-3xl"
-                style={{ marginBottom: "20px" }}
-              >
-                Север Волгоградской области — зона наиболее плодородных земель
-                региона
-              </h3>
-
+            {content.cards.map((card) => (
               <div
-                className="space-y-4 text-left text-lg font-semibold leading-relaxed text-gray-700 lg:text-xl"
-                style={{ marginTop: "20px" }}
+                key={card.title}
+                className="rounded-lg bg-white/30 backdrop-blur-sm"
+                style={{ padding: "48px" }}
               >
-                <p>
-                  Предприятие расположено в северной части Волгоградской области
-                  — зоне высокопродуктивных чернозёмов.
-                </p>
-                <p>
-                  <span className="font-medium text-forest">•</span> естественно
-                  плодородные почвы
-                </p>
-                <p>
-                  <span className="font-medium text-forest">•</span> более
-                  благоприятный климат по влагообеспеченности
-                </p>
-                <p>
-                  <span className="font-medium text-forest">•</span> стабильность
-                  урожайности
-                </p>
-                <p>
-                  <span className="font-medium text-forest">•</span> сниженные
-                  риски засух
-                </p>
-              </div>
-            </div>
+                <h3
+                  className="text-2xl font-medium text-graphite lg:text-3xl"
+                  style={{ marginBottom: "20px" }}
+                >
+                  {card.title}
+                </h3>
 
-            <div className="rounded-lg bg-white/30 backdrop-blur-sm" style={{ padding: "48px" }}>
-              <h3
-                className="text-2xl font-medium text-graphite lg:text-3xl"
-                style={{ marginBottom: "20px" }}
-              >
-                Расположение на берегу реки Дон
-              </h3>
-
-              <div
-                className="space-y-4 text-left text-lg font-semibold leading-relaxed text-gray-700 lg:text-xl"
-                style={{ marginTop: "20px" }}
-              >
-                <p>
-                  Предприятие находится в непосредственной близости к реке Дон,
-                  что создаёт стратегическое преимущество:
-                </p>
-                <p>
-                  <span className="font-medium text-forest">•</span> наличие
-                  крупного и стабильного водного ресурса
-                </p>
-                <p>
-                  <span className="font-medium text-forest">•</span> возможность
-                  внедрения промышленных систем орошения
-                </p>
-                <p>
-                  <span className="font-medium text-forest">•</span> потенциал
-                  существенного увеличения урожайности
-                </p>
-                <p>
-                  <span className="font-medium text-forest">•</span> снижение
-                  климатических рисков
-                </p>
-                <p>
-                  Наличие водного ресурса формирует фундамент для перехода к
-                  интенсивной модели земледелия.
-                </p>
+                <div
+                  className="space-y-4 text-left text-lg font-semibold leading-relaxed text-gray-700 lg:text-xl"
+                  style={{ marginTop: "20px" }}
+                >
+                  <p>{card.lead}</p>
+                  {card.bullets.map((bullet) => (
+                    <p key={bullet}>
+                      <span className="font-medium text-forest">•</span> {bullet}
+                    </p>
+                  ))}
+                  {card.conclusion ? <p>{card.conclusion}</p> : null}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

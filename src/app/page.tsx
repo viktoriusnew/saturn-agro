@@ -1,39 +1,22 @@
-import Hero from "@/components/sections/Hero";
-import GeneralInfo from "@/components/sections/GeneralInfo";
-import CardStackContainer from "@/components/CardStackContainer";
-import GeoAdvantage from "@/components/sections/GeoAdvantage";
-import LandBank from "@/components/sections/LandBank";
-import ProductionProfile from "@/components/sections/ProductionProfile";
-import Infrastructure from "@/components/sections/Infrastructure";
-import Finance from "@/components/sections/Finance";
-import Strategy from "@/components/sections/Strategy";
-import Uniqueness from "@/components/sections/Uniqueness";
-import Cooperation from "@/components/sections/Cooperation";
-import ProjectStatus from "@/components/sections/ProjectStatus";
-import VideoPresentation from "@/components/sections/VideoPresentation";
-import Location from "@/components/sections/Location";
+import { cookies, headers } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <>
-      <main className="relative">
-        <Hero />
-        <GeneralInfo />
-        <CardStackContainer>
-          <GeoAdvantage />
-          <LandBank />
-          <ProductionProfile />
-          <Infrastructure />
-          <Finance />
-          <Strategy />
-          <Uniqueness />
-          <Cooperation />
-        </CardStackContainer>
-        
-        <ProjectStatus />
-        <VideoPresentation />
-        <Location />
-      </main>
-    </>
-  );
+import {
+  defaultLocale,
+  detectLocale,
+  getCountryFromHeaders,
+  localeCookieName,
+} from "@/lib/i18n";
+
+export default async function RootPage() {
+  const cookieStore = await cookies();
+  const requestHeaders = await headers();
+
+  const locale = detectLocale({
+    cookieLocale: cookieStore.get(localeCookieName)?.value,
+    country: getCountryFromHeaders((name) => requestHeaders.get(name)),
+    acceptLanguage: requestHeaders.get("accept-language"),
+  });
+
+  redirect(`/${locale ?? defaultLocale}`);
 }

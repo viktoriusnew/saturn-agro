@@ -4,11 +4,18 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import type { SiteContent } from "@/lib/site-content";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function Finance() {
+type FinanceProps = {
+  ui: SiteContent["ui"];
+  content: SiteContent["finance"];
+};
+
+export default function Finance({ ui, content }: FinanceProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -31,7 +38,7 @@ export default function Finance() {
           start: "top 60%",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     return () => {
@@ -55,7 +62,7 @@ export default function Finance() {
         <div className="w-full">
           <div className="animate-item text-center" style={{ marginTop: "100px" }}>
             <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              Раздел 6
+              {ui.sectionLabel} 6
             </span>
           </div>
 
@@ -63,64 +70,34 @@ export default function Finance() {
             className="animate-item text-center text-4xl font-light text-graphite md:text-5xl lg:text-6xl"
             style={{ marginTop: "30px" }}
           >
-            Финансовые показатели
+            {content.title}
           </h2>
 
           <p
             className="animate-item text-center text-xl font-semibold text-gray-600"
             style={{ marginTop: "15px" }}
           >
-            Нормализованный период
+            {content.subtitle}
           </p>
 
-          <div
-            className="animate-item grid gap-6 md:grid-cols-3"
-            style={{ marginTop: "30px" }}
-          >
-            <div
-              className="flex flex-col justify-center rounded-2xl bg-white p-8 text-center shadow-xl"
-              style={{ minHeight: "320px" }}
-            >
-              <div className="mb-4 text-2xl font-medium text-gold">
-                Годовая выручка
+          <div className="animate-item grid gap-6 md:grid-cols-3" style={{ marginTop: "30px" }}>
+            {content.cards.map((card) => (
+              <div
+                key={card.label}
+                className="flex min-h-[320px] flex-col justify-center rounded-2xl bg-white p-8 text-center shadow-xl"
+              >
+                <div className="mb-4 text-2xl font-medium text-gold">{card.label}</div>
+                <div className="mb-2 text-5xl font-bold text-forest md:text-6xl">{card.value}</div>
+                <div className="text-2xl font-medium text-gold">{card.unit}</div>
               </div>
-              <div className="mb-2 text-5xl font-bold text-forest md:text-6xl">
-                1,25–1,45
-              </div>
-              <div className="text-2xl font-medium text-gold">млрд рублей</div>
-            </div>
-
-            <div
-              className="flex flex-col justify-center rounded-2xl bg-white p-8 text-center shadow-xl"
-              style={{ minHeight: "320px" }}
-            >
-              <div className="mb-4 text-2xl font-medium text-gold">EBITDA</div>
-              <div className="mb-2 text-5xl font-bold text-forest md:text-6xl">
-                420–600
-              </div>
-              <div className="text-2xl font-medium text-gold">млн рублей в год</div>
-            </div>
-
-            <div
-              className="flex flex-col justify-center rounded-2xl bg-white p-8 text-center shadow-xl"
-              style={{ minHeight: "320px" }}
-            >
-              <div className="mb-4 text-2xl font-medium text-gold">
-                Денежный поток
-              </div>
-              <div className="mb-2 text-4xl font-bold text-forest md:text-5xl">
-                Устойчивый
-              </div>
-              <div className="text-2xl font-medium text-gold">операционный</div>
-            </div>
+            ))}
           </div>
 
           <p
             className="animate-item text-center text-lg font-semibold text-gray-700"
             style={{ marginTop: "35px" }}
           >
-            Данные показатели подтверждают эффективность действующей
-            операционной модели.
+            {content.conclusion}
           </p>
         </div>
       </div>

@@ -4,11 +4,18 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import type { SiteContent } from "@/lib/site-content";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function GeneralInfo() {
+type GeneralInfoProps = {
+  ui: SiteContent["ui"];
+  content: SiteContent["generalInfo"];
+};
+
+export default function GeneralInfo({ ui, content }: GeneralInfoProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -16,7 +23,7 @@ export default function GeneralInfo() {
     if (!contentRef.current) return;
 
     const elements = contentRef.current.querySelectorAll(".animate-item");
-    
+
     gsap.fromTo(
       elements,
       { opacity: 0, y: 30 },
@@ -31,7 +38,7 @@ export default function GeneralInfo() {
           start: "top 70%",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     return () => {
@@ -42,47 +49,39 @@ export default function GeneralInfo() {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-32 overflow-hidden"
+      className="relative overflow-hidden pt-32"
       style={{ paddingBottom: "100px" }}
     >
-      {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: "url('/images/section1-map-bg.png')",
-        }}
+        style={{ backgroundImage: "url('/images/section1-map-bg.png')" }}
       />
-      
       <div className="absolute inset-0 bg-white/40" />
 
-      {/* Content */}
-      <div
-        ref={contentRef}
-        className="relative z-10 section-padding"
-      >
+      <div ref={contentRef} className="relative z-10 section-padding">
         <div className="max-w-6xl">
           <div className="animate-item" style={{ marginTop: "100px" }}>
-            <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
-              Раздел 1
+            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
+              {ui.sectionLabel} 1
             </span>
           </div>
 
-          <h2 className="animate-item mt-8 text-4xl md:text-5xl lg:text-6xl font-light text-graphite leading-[1.1] tracking-tight" style={{ marginBottom: '60px' }}>
-            Общая характеристика проекта
+          <h2
+            className="animate-item mt-8 text-4xl font-light leading-[1.1] tracking-tight text-graphite md:text-5xl lg:text-6xl"
+            style={{ marginBottom: "60px" }}
+          >
+            {content.title}
           </h2>
 
-          <div className="animate-item max-w-4xl" style={{ display: 'flex', flexDirection: 'column', gap: '40px', paddingBottom: '60px' }}>
-            <p className="text-lg md:text-xl text-black leading-relaxed font-bold">
-              ООО «Сатурн-Агро» — действующее сельскохозяйственное предприятие, осуществляющее промышленное растениеводство в северной части Волгоградской области Российской Федерации.
-            </p>
-
-            <p className="text-lg md:text-xl text-black leading-relaxed font-bold">
-              Компания ведёт операционную деятельность с 2008 года и обладает консолидированным земельным банком, развитой производственной инфраструктурой и устойчивыми финансовыми показателями. В течение всех лет ведётся анализ результатов производства сельскохозяйственной продукции, зафиксирован устойчивый рост качества, количества производимой продукции
-            </p>
-
-            <p className="text-lg md:text-xl text-black leading-relaxed font-bold">
-              Проект рассматривается как стратегический агропромышленный актив с потенциалом трансформации в агрокластер полного цикла.
-            </p>
+          <div
+            className="animate-item max-w-4xl"
+            style={{ display: "flex", flexDirection: "column", gap: "40px", paddingBottom: "60px" }}
+          >
+            {content.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-lg font-bold leading-relaxed text-black md:text-xl">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
       </div>

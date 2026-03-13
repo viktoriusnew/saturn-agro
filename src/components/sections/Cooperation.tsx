@@ -4,38 +4,18 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import type { SiteContent } from "@/lib/site-content";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const cooperationPoints = [
-  {
-    text: "Приобретение стратегическим соинвестором 49 % доли в уставном капитале ООО «Сатурн-Агро» за 3 млрд рублей",
-    highlight: false,
-  },
-  {
-    text: "Возможность привлекать кредиты и проектное финансирование из КНР",
-    highlight: false,
-  },
-  {
-    text: "Совместные бренды и долгосрочные экспортные контракты",
-    highlight: false,
-  },
-  {
-    text: "Выход на крупнейший мировой рынок — Китай",
-    highlight: false,
-  },
-  {
-    text: "Совместный выход на рынки стран «Пояса и пути», дружественных России и КНР",
-    highlight: false,
-  },
-  {
-    text: "Формат: долгосрочное партнёрство",
-    highlight: false,
-  },
-];
+type CooperationProps = {
+  ui: SiteContent["ui"];
+  content: SiteContent["cooperation"];
+};
 
-export default function Cooperation() {
+export default function Cooperation({ ui, content }: CooperationProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +23,7 @@ export default function Cooperation() {
     if (!contentRef.current) return;
 
     const elements = contentRef.current.querySelectorAll(".animate-item");
-    
+
     gsap.fromTo(
       elements,
       { opacity: 0, y: 40 },
@@ -58,7 +38,7 @@ export default function Cooperation() {
           start: "top 60%",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     return () => {
@@ -77,56 +57,43 @@ export default function Cooperation() {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/section9-bg.png')" }}
       />
-
       <div className="absolute inset-0 bg-white/45" />
 
-      <div
-        ref={contentRef}
-        className="relative z-10 section-padding"
-      >
+      <div ref={contentRef} className="relative z-10 section-padding">
         <div className="w-full">
           <div className="animate-item text-center" style={{ marginTop: "100px" }}>
-            <span className="inline-block text-forest text-sm font-medium tracking-[0.25em] uppercase border border-forest/30 px-4 py-2 rounded-sm">
-              Раздел 9
+            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
+              {ui.sectionLabel} 9
             </span>
           </div>
 
-          <h2 className="animate-item text-center text-4xl md:text-5xl lg:text-6xl font-light text-graphite" style={{ marginTop: '40px', marginBottom: '40px' }}>
-            Форма сотрудничества
+          <h2
+            className="animate-item text-center text-4xl font-light text-graphite md:text-5xl lg:text-6xl"
+            style={{ marginTop: "40px", marginBottom: "40px" }}
+          >
+            {content.title}
           </h2>
 
-          <div className="animate-item" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {cooperationPoints.map((point, index) => (
-              <div
-                key={index}
-                className={`rounded-xl p-6 ${
-                  point.highlight 
-                    ? "bg-gradient-to-r from-forest to-forest-light text-white shadow-xl" 
-                    : "bg-white shadow-lg"
-                }`}
-              >
+          <div className="animate-item" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            {content.points.map((point, index) => (
+              <div key={point} className="rounded-xl bg-white p-6 shadow-lg">
                 <div className="flex items-start gap-4">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold ${
-                    point.highlight 
-                      ? "bg-white text-forest" 
-                      : "bg-forest text-white"
-                  }`}>
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-forest font-bold text-white">
                     {index + 1}
                   </div>
-                  <p className={`text-[20px] font-semibold leading-relaxed ${
-                    point.highlight ? "text-white" : "text-gray-700"
-                  }`}>
-                    {point.text}
+                  <p className="text-[20px] font-semibold leading-relaxed text-gray-700">
+                    {point}
                   </p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="animate-item bg-gradient-to-r from-forest to-forest-light rounded-2xl text-white" style={{ padding: '25px', marginTop: '40px' }}>
-            <p className="text-[20px] font-semibold leading-relaxed">
-              Такая структура взаимодействия обеспечивает баланс интересов сторон и стимулирует совместную реализацию стратегии развития предприятия.
-            </p>
+          <div
+            className="animate-item rounded-2xl bg-gradient-to-r from-forest to-forest-light text-white"
+            style={{ padding: "25px", marginTop: "40px" }}
+          >
+            <p className="text-[20px] font-semibold leading-relaxed">{content.conclusion}</p>
           </div>
         </div>
       </div>
