@@ -15,7 +15,7 @@ type LandBankProps = {
   content: SiteContent["landBank"];
 };
 
-export default function LandBank({ ui, content }: LandBankProps) {
+export default function LandBank({ ui: _ui, content }: LandBankProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -61,13 +61,10 @@ export default function LandBank({ ui, content }: LandBankProps) {
 
       <div ref={contentRef} className="relative z-10 flex flex-col items-center section-padding">
         <div className="w-full max-w-6xl text-center">
-          <div className="animate-item" style={{ marginTop: "100px" }}>
-            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              {ui.sectionLabel} 3
-            </span>
-          </div>
-
-          <h2 className="animate-item mt-8 text-4xl font-light text-graphite md:text-5xl lg:text-6xl">
+          <h2
+            className="animate-item text-4xl font-light text-graphite md:text-5xl lg:text-6xl"
+            style={{ marginTop: "100px" }}
+          >
             {content.title}
           </h2>
 

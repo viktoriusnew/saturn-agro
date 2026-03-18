@@ -15,7 +15,7 @@ type ProductionProfileProps = {
   content: SiteContent["productionProfile"];
 };
 
-export default function ProductionProfile({ ui, content }: ProductionProfileProps) {
+export default function ProductionProfile({ ui: _ui, content }: ProductionProfileProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -50,20 +50,24 @@ export default function ProductionProfile({ ui, content }: ProductionProfileProp
     <section
       ref={sectionRef}
       data-card-section
-      className="relative w-full overflow-hidden bg-cream pt-24"
+      className="relative w-full overflow-hidden pt-24"
       style={{ zIndex: 30, paddingBottom: "100px" }}
     >
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/video/agriculture.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      <div className="absolute inset-0 bg-white/55" />
+
       <div ref={contentRef} className="relative z-10 section-padding py-12">
         <div className="mx-auto w-full max-w-7xl">
-          <div className="animate-item mb-8 text-center" style={{ marginTop: "100px" }}>
-            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              {ui.sectionLabel} 4
-            </span>
-          </div>
-
           <h2
             className="animate-item text-center text-4xl font-light text-graphite md:text-5xl lg:text-6xl"
-            style={{ marginBottom: "12px" }}
+            style={{ marginTop: "100px", marginBottom: "12px" }}
           >
             {content.title}
           </h2>
@@ -75,13 +79,17 @@ export default function ProductionProfile({ ui, content }: ProductionProfileProp
             {content.subtitle}
           </p>
 
-          <div className="animate-item grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
+          <div
+            className="animate-item grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
+            style={{ columnGap: "0px", rowGap: "20px", maxWidth: "1040px", marginLeft: "auto", marginRight: "auto" }}
+          >
             {content.crops.map((crop) => (
               <div
                 key={crop.name}
                 className="group flex cursor-pointer flex-col items-center rounded-xl bg-white p-6 text-center shadow-md transition-shadow duration-300 hover:shadow-xl"
+                style={{ width: "58%", marginLeft: "auto", marginRight: "auto" }}
               >
-                <div className="mb-4 overflow-hidden rounded-lg" style={{ aspectRatio: "4/3", width: "64%" }}>
+                <div className="mb-4 overflow-hidden rounded-lg" style={{ aspectRatio: "4/3", width: "45%" }}>
                   <img
                     src={crop.image}
                     alt={crop.name}

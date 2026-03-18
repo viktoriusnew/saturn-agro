@@ -15,7 +15,7 @@ type GeneralInfoProps = {
   content: SiteContent["generalInfo"];
 };
 
-export default function GeneralInfo({ ui, content }: GeneralInfoProps) {
+export default function GeneralInfo({ ui: _ui, content }: GeneralInfoProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -60,15 +60,9 @@ export default function GeneralInfo({ ui, content }: GeneralInfoProps) {
 
       <div ref={contentRef} className="relative z-10 section-padding">
         <div className="max-w-6xl">
-          <div className="animate-item" style={{ marginTop: "100px" }}>
-            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              {ui.sectionLabel} 1
-            </span>
-          </div>
-
           <h2
-            className="animate-item mt-8 text-4xl font-light leading-[1.1] tracking-tight text-graphite md:text-5xl lg:text-6xl"
-            style={{ marginBottom: "60px" }}
+            className="animate-item text-4xl font-light leading-[1.1] tracking-tight text-graphite md:text-5xl lg:text-6xl"
+            style={{ marginTop: "100px", marginBottom: "60px" }}
           >
             {content.title}
           </h2>

@@ -15,7 +15,7 @@ type StrategyProps = {
   content: SiteContent["strategy"];
 };
 
-export default function Strategy({ ui, content }: StrategyProps) {
+export default function Strategy({ ui: _ui, content }: StrategyProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -64,16 +64,10 @@ export default function Strategy({ ui, content }: StrategyProps) {
 
       <div ref={contentRef} className="relative z-10 section-padding py-8">
         <div className="mx-auto w-full max-w-7xl">
-          <div
-            className="animate-item text-center"
-            style={{ marginTop: "100px", marginBottom: "24px" }}
+          <h2
+            className="animate-item text-center text-3xl font-light text-graphite md:text-4xl lg:text-5xl"
+            style={{ marginTop: "100px" }}
           >
-            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              {ui.sectionLabel} 7
-            </span>
-          </div>
-
-          <h2 className="animate-item text-center text-3xl font-light text-graphite md:text-4xl lg:text-5xl">
             {content.title}
           </h2>
 

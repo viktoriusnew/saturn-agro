@@ -15,7 +15,7 @@ type ProjectStatusProps = {
   content: SiteContent["projectStatus"];
 };
 
-export default function ProjectStatus({ ui, content }: ProjectStatusProps) {
+export default function ProjectStatus({ ui: _ui, content }: ProjectStatusProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -50,23 +50,24 @@ export default function ProjectStatus({ ui, content }: ProjectStatusProps) {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24"
-      style={{ zIndex: 30, paddingBottom: "100px" }}
+      style={{ zIndex: 30, paddingBottom: "100px", minHeight: "115vh" }}
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/infrastructure-bg.png')" }}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/video/section10-bg.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
       />
       <div className="absolute inset-0 bg-white/85" />
 
       <div ref={contentRef} className="relative z-10 flex flex-col items-center section-padding">
         <div className="w-full text-center">
-          <div className="animate-item" style={{ marginTop: "100px" }}>
-            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              {ui.sectionLabel} 10
-            </span>
-          </div>
-
-          <h2 className="animate-item mt-8 text-4xl font-light text-graphite md:text-5xl lg:text-6xl">
+          <h2
+            className="animate-item text-4xl font-light text-graphite md:text-5xl lg:text-6xl"
+            style={{ marginTop: "100px" }}
+          >
             {content.title}
           </h2>
 
@@ -74,7 +75,7 @@ export default function ProjectStatus({ ui, content }: ProjectStatusProps) {
             <div
               key={paragraph}
               className="animate-item"
-              style={{ marginTop: index === 0 ? "80px" : "60px" }}
+              style={{ marginTop: index === 0 ? "130px" : "90px" }}
             >
               <p
                 className="text-xl font-semibold leading-relaxed text-gray-700 md:text-2xl"

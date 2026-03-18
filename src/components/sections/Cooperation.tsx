@@ -15,7 +15,7 @@ type CooperationProps = {
   content: SiteContent["cooperation"];
 };
 
-export default function Cooperation({ ui, content }: CooperationProps) {
+export default function Cooperation({ ui: _ui, content }: CooperationProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -61,15 +61,9 @@ export default function Cooperation({ ui, content }: CooperationProps) {
 
       <div ref={contentRef} className="relative z-10 section-padding">
         <div className="w-full">
-          <div className="animate-item text-center" style={{ marginTop: "100px" }}>
-            <span className="inline-block rounded-sm border border-forest/30 px-4 py-2 text-sm font-medium uppercase tracking-[0.25em] text-forest">
-              {ui.sectionLabel} 9
-            </span>
-          </div>
-
           <h2
             className="animate-item text-center text-4xl font-light text-graphite md:text-5xl lg:text-6xl"
-            style={{ marginTop: "40px", marginBottom: "40px" }}
+            style={{ marginTop: "100px", marginBottom: "40px" }}
           >
             {content.title}
           </h2>
