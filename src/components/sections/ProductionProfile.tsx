@@ -51,7 +51,7 @@ export default function ProductionProfile({ ui: _ui, content }: ProductionProfil
       ref={sectionRef}
       data-card-section
       className="relative w-full overflow-hidden pt-24"
-      style={{ zIndex: 30, paddingBottom: "100px" }}
+      style={{ zIndex: 30, minHeight: "100vh" }}
     >
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -63,11 +63,15 @@ export default function ProductionProfile({ ui: _ui, content }: ProductionProfil
       />
       <div className="absolute inset-0 bg-white/55" />
 
-      <div ref={contentRef} className="relative z-10 section-padding py-12">
+      <div
+        ref={contentRef}
+        className="relative z-10 flex items-center section-padding py-12"
+        style={{ minHeight: "100vh" }}
+      >
         <div className="mx-auto w-full max-w-7xl">
           <h2
             className="animate-item text-center text-4xl font-light text-graphite md:text-5xl lg:text-6xl"
-            style={{ marginTop: "100px", marginBottom: "12px" }}
+            style={{ marginBottom: "12px" }}
           >
             {content.title}
           </h2>

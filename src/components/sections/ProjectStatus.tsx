@@ -50,7 +50,7 @@ export default function ProjectStatus({ ui: _ui, content }: ProjectStatusProps) 
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24"
-      style={{ zIndex: 30, paddingBottom: "100px", minHeight: "115vh" }}
+      style={{ zIndex: 30, paddingBottom: "100px", minHeight: "100vh" }}
     >
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -60,8 +60,7 @@ export default function ProjectStatus({ ui: _ui, content }: ProjectStatusProps) 
         muted
         playsInline
       />
-      <div className="absolute inset-0 bg-white/85" />
-
+      <div className="absolute inset-0 bg-white/65" />
       <div ref={contentRef} className="relative z-10 flex flex-col items-center section-padding">
         <div className="w-full text-center">
           <h2
